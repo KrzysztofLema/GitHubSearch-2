@@ -15,6 +15,7 @@
 		959FB6892BF7E24F0042C394 /* GitHubSearch_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6882BF7E24F0042C394 /* GitHubSearch_2Tests.swift */; };
 		959FB6932BF7E24F0042C394 /* GitHubSearch_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6922BF7E24F0042C394 /* GitHubSearch_2UITests.swift */; };
 		959FB6952BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */; };
+		95CC38A52BF94491005EA562 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 95CC38A42BF94491005EA562 /* TinyConstraints */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95CC38A52BF94491005EA562 /* TinyConstraints in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,6 +143,9 @@
 			dependencies = (
 			);
 			name = "GitHubSearch-2";
+			packageProductDependencies = (
+				95CC38A42BF94491005EA562 /* TinyConstraints */,
+			);
 			productName = "GitHubSearch-2";
 			productReference = 959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */;
 			productType = "com.apple.product-type.application";
@@ -214,6 +219,7 @@
 			);
 			mainGroup = 959FB6652BF7E24E0042C394;
 			packageReferences = (
+				95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -621,6 +627,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		95CC38A42BF94491005EA562 /* TinyConstraints */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
+			productName = TinyConstraints;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 959FB6662BF7E24E0042C394 /* Project object */;
 }
