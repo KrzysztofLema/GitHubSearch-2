@@ -132,6 +132,7 @@
 			buildConfigurationList = 959FB6982BF7E24F0042C394 /* Build configuration list for PBXNativeTarget "GitHubSearch-2" */;
 			buildPhases = (
 				959FB66A2BF7E24E0042C394 /* Sources */,
+				959FB6A22BF884040042C394 /* ShellScript */,
 				959FB66B2BF7E24E0042C394 /* Frameworks */,
 				959FB66C2BF7E24E0042C394 /* Resources */,
 			);
@@ -212,6 +213,8 @@
 				Base,
 			);
 			mainGroup = 959FB6652BF7E24E0042C394;
+			packageReferences = (
+			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -248,6 +251,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		959FB6A22BF884040042C394 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		959FB66A2BF7E24E0042C394 /* Sources */ = {
@@ -431,6 +455,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHubSearch-2/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -459,6 +484,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHubSearch-2/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
