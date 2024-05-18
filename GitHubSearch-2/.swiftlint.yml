@@ -15,30 +15,22 @@ disabled_rules:
   - function_parameter_count
   - type_body_length
   - cyclomatic_complexity
-  - identifier_name
   - nesting
   - notification_center_detachment
-  - file_length
   - large_tuple
+  - identifier_name
 
 opt_in_rules:
     - conditional_returns_on_newline
     - shorthand_optional_binding
     - implicit_return
 
-line_length: 250
-
-type_name:
-    max_length: 50
+line_length:
+  warning: 180
+  error: 240
+  ignores_comments: true
+  ignores_urls: true
 
 file_length:
   warning: 500
   error: 2500
-
-identifier_name:
-  min_length: 2
-    error: 4
-  excluded: 
-    - id
-    - URL
-    - GlobalAPIKey
