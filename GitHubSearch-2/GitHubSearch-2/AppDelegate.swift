@@ -6,13 +6,14 @@
 //
 
 import UIKit
+import CocoaLumberjackSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        true
+        DDLog.add(DDOSLogger.sharedInstance)
+        return true
     }
 
     // MARK: UISceneSession Lifecycle
