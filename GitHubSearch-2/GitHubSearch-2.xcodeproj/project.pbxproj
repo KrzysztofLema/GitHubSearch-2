@@ -220,6 +220,7 @@
 			mainGroup = 959FB6652BF7E24E0042C394;
 			packageReferences = (
 				95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
+				95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -635,6 +636,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.0.2;
+			};
+		};
+		95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
