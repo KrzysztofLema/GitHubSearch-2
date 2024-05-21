@@ -6,10 +6,8 @@
 //
 
 import UIKit
+import Combine
 
 class MainViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+    
 }
