@@ -309,6 +309,7 @@
 			packageReferences = (
 				95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 				95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				95B101562BFFE1BC00F82CFA /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -725,6 +726,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		95B101562BFFE1BC00F82CFA /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.8.8;
+			};
+		};
 		95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
