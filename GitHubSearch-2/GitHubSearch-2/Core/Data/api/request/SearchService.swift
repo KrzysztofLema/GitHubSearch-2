@@ -9,13 +9,13 @@ import Combine
 import Foundation
 
 final class SearchService: SearchServiceType {
-    
-    private let requestManager = RequestManager()
+  
+    @Injected(\.requestManager) var requestManager: RequestManagerType
     
     func search(
         with keyword: String,
-        sortType: SortType? = .none,
         page: Int,
+        sortType: SortType? = .none,
         orderType: OrderType? = .none
     ) throws -> AnyPublisher<SearchResult, ServiceError> {
         try requestManager.perform(
@@ -30,5 +30,16 @@ final class SearchService: SearchServiceType {
         .mapError(ServiceError.networkError)
         .map(SearchResult.init)
         .eraseToAnyPublisher()
+    }
+}
+
+struct SearchServiceKey: InjectionKey {
+    static var currentValue: SearchServiceType = SearchService()
+}
+
+extension InjectedValues {
+    var searchService: SearchServiceType {
+        get { Self[SearchServiceKey.self] }
+        set { Self[SearchServiceKey.self] = newValue }
     }
 }

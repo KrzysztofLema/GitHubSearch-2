@@ -8,29 +8,29 @@
 import Combine
 import Foundation
 
-protocol RequestManagerProtocol {
+protocol RequestManagerType {
     func perform<T: Decodable>(_ request: RequestProtocol, type: T.Type) throws -> AnyPublisher<T, NetworkError>
 }
 
-final class RequestManager: RequestManagerProtocol {
+final class RequestManager: RequestManagerType {
     
-    private let apiQueue = DispatchQueue(label: APIConstants.apiQueueLabel, qos: .userInitiated, attributes: .concurrent)
-    private let parser: DataParserProtocol
+    @Injected(\.dataParser) var dataParser: DataParserType
+    
     private let urlSession: URLSession
     
     init(
-        sessionConfiguration: URLSessionConfiguration = .default,
-        parser: DataParserProtocol = DataParser()
+        sessionConfiguration: URLSessionConfiguration = .default
     ) {
         self.urlSession = URLSession(configuration: sessionConfiguration)
-        self.parser = parser
     }
     
     func perform<T: Decodable>(_ request: RequestProtocol, type: T.Type) throws -> AnyPublisher<T, NetworkError> {
-        perform(try request.createURLRequest())
+        let apiQueue = DispatchQueue(label: APIConstants.apiQueueLabel, qos: .userInitiated, attributes: .concurrent)
+        
+        return perform(try request.createURLRequest())
             .subscribe(on: apiQueue)
             .flatMap { data in
-                self.parser.parse(data: data)
+                self.dataParser.parse(data: data)
             }
             .eraseToAnyPublisher()
     }
@@ -68,3 +68,15 @@ final class RequestManager: RequestManagerProtocol {
         return .notConnectedToInternet
     }
 }
+
+struct RequestManagerKey: InjectionKey {
+    static var currentValue: RequestManagerType = RequestManager()
+}
+
+extension InjectedValues {
+    var requestManager: RequestManagerType {
+        get { Self[RequestManagerKey.self] }
+        set { Self[RequestManagerKey.self] = newValue }
+    }
+}
+

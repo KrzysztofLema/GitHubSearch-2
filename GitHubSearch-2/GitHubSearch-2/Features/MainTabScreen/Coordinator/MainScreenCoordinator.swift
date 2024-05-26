@@ -18,7 +18,8 @@ final class MainScreenCoordinator: Coordinator {
     }
     
     private func mainScreenViewController() -> MainViewController {
-        let viewController = MainViewController()
+        let viewModel = MainViewModel()
+        let viewController = MainViewController(viewModel: viewModel)
         return viewController
     }
 }
