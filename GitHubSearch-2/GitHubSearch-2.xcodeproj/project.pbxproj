@@ -23,6 +23,8 @@
 		959FB6952BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */; };
 		95B101532BFFD1A700F82CFA /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101522BFFD1A700F82CFA /* SortType.swift */; };
 		95B101552BFFD56B00F82CFA /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101542BFFD56B00F82CFA /* OrderType.swift */; };
+		95B101632C020D8100F82CFA /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101622C020D8100F82CFA /* MainViewModel.swift */; };
+		95B101662C03188800F82CFA /* InjectedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101652C03188800F82CFA /* InjectedValues.swift */; };
 		95CC38A52BF94491005EA562 /* TinyConstraints in Frameworks */ = {isa = PBXBuildFile; productRef = 95CC38A42BF94491005EA562 /* TinyConstraints */; };
 		95CC38A72BFA3E8A005EA562 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC38A62BFA3E8A005EA562 /* TabBarViewController.swift */; };
 		95CC38AB2BFB5FC0005EA562 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 95CC38AA2BFB5FC0005EA562 /* CocoaLumberjackSwift */; };
@@ -83,6 +85,8 @@
 		959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearch_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		95B101522BFFD1A700F82CFA /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		95B101542BFFD56B00F82CFA /* OrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
+		95B101622C020D8100F82CFA /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		95B101652C03188800F82CFA /* InjectedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedValues.swift; sourceTree = "<group>"; };
 		95CC38A62BFA3E8A005EA562 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		95CC38AF2BFB8A63005EA562 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		95CC38B12BFB8A77005EA562 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
@@ -163,6 +167,7 @@
 			children = (
 				951BFA1F2BF92A720019B430 /* Coordinator */,
 				951BFA282BF92CE20019B430 /* MainViewController.swift */,
+				95B101622C020D8100F82CFA /* MainViewModel.swift */,
 			);
 			path = MainTabScreen;
 			sourceTree = "<group>";
@@ -216,6 +221,7 @@
 		959FB6702BF7E24E0042C394 /* GitHubSearch-2 */ = {
 			isa = PBXGroup;
 			children = (
+				95B1015A2C01D29400F82CFA /* DependencyInjection */,
 				95CC38BC2BFBCE54005EA562 /* Models */,
 				95CC38AC2BFB89E8005EA562 /* Core */,
 				951BFA192BF920C00019B430 /* Features */,
@@ -253,6 +259,14 @@
 				95CC38C82BFCA151005EA562 /* ServiceError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		95B1015A2C01D29400F82CFA /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+				95B101652C03188800F82CFA /* InjectedValues.swift */,
+			);
+			path = DependencyInjection;
 			sourceTree = "<group>";
 		};
 		95CC38A92BFB5FC0005EA562 /* Frameworks */ = {
@@ -438,7 +452,6 @@
 			packageReferences = (
 				95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 				95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
-				95B101562BFFE1BC00F82CFA /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -508,6 +521,7 @@
 				951BFA152BF8BAFA0019B430 /* ApplicationCoordinator.swift in Sources */,
 				95B101532BFFD1A700F82CFA /* SortType.swift in Sources */,
 				951BFA182BF8C8880019B430 /* TabBarCoordinator.swift in Sources */,
+				95B101662C03188800F82CFA /* InjectedValues.swift in Sources */,
 				95CC38D82BFCD7A0005EA562 /* Owner.swift in Sources */,
 				95B101552BFFD56B00F82CFA /* OrderType.swift in Sources */,
 				95CC38B42BFB8D4F005EA562 /* APIConstants.swift in Sources */,
@@ -532,6 +546,7 @@
 				95CC38B92BFB94AA005EA562 /* SearchService.swift in Sources */,
 				951BFA212BF92ACB0019B430 /* MainScreenCoordinator.swift in Sources */,
 				95CC38B22BFB8A77005EA562 /* RequestType.swift in Sources */,
+				95B101632C020D8100F82CFA /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -874,14 +889,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		95B101562BFFE1BC00F82CFA /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.8.8;
-			};
-		};
 		95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";

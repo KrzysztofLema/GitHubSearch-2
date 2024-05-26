@@ -8,27 +8,38 @@
 import Combine
 import Foundation
 
-protocol DataParserProtocol {
-  func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError>
+protocol DataParserType {
+    func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError>
 }
 
-final class DataParser: DataParserProtocol {
+final class DataParser: DataParserType {
     
-  private var jsonDecoder: JSONDecoder
+    private var jsonDecoder: JSONDecoder
+    
+    init(jsonDecoder: JSONDecoder = JSONDecoder()) {
+        self.jsonDecoder = jsonDecoder
+        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
+    }
+    
+    func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {
+        do {
+            return Just(try jsonDecoder.decode(T.self, from: data))
+                .setFailureType(to: NetworkError.self)
+                .eraseToAnyPublisher()
+        } catch {
+            return Fail(error: NetworkError.dataParsingFailed)
+                .eraseToAnyPublisher()
+        }
+    }
+}
 
-  init(jsonDecoder: JSONDecoder = JSONDecoder()) {
-    self.jsonDecoder = jsonDecoder
-    self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
-  }
+struct DataParserKey: InjectionKey {
+    static var currentValue: DataParserType = DataParser()
+}
 
-  func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {
-      do {
-         return Just(try jsonDecoder.decode(T.self, from: data))
-              .setFailureType(to: NetworkError.self)
-              .eraseToAnyPublisher()
-      } catch {
-          return Fail(error: NetworkError.dataParsingFailed)
-              .eraseToAnyPublisher()
-      }
-  }
+extension InjectedValues {
+    var dataParser: DataParserType {
+        get { Self[DataParserKey.self] }
+        set { Self[DataParserKey.self] = newValue }
+    }
 }

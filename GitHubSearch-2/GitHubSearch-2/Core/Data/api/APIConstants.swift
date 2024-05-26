@@ -8,7 +8,7 @@
 import Foundation
 
 enum APIConstants {
-    static let apiQueueLabel = "API"
+    static let apiQueueLabel = "api"
     
     static let host = "api.github.com"
     static let scheme = "https"
