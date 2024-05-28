@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    private let rootNavigationController = UINavigationController()
+    private let rootNavigationController = NavigationController()
     private lazy var appCoordinator = ApplicationCoordinator(navigationController: rootNavigationController)
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -21,7 +21,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         setupWindow(with: windowScene)
         
-        appCoordinator.start()
+        DispatchQueue.main.async { [weak self] in
+            self?.appCoordinator.start()
+        }
     }
 }
 

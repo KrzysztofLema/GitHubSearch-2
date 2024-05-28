@@ -10,11 +10,11 @@ import TinyConstraints
 
 final class TabBarViewController: UITabBarController {
     
-    let mainScreenCoordinator: MainScreenCoordinator
+    let repositoryListViewCoordinator: RepositoryListViewCoordinator
     let settingsScreenCoordinator: SettingsScreenCoordinator
     
-    init(mainScreenCoordinator: MainScreenCoordinator, settingsScreenCoordinator: SettingsScreenCoordinator) {
-        self.mainScreenCoordinator = mainScreenCoordinator
+    init(repositoryListViewCoordinator: RepositoryListViewCoordinator, settingsScreenCoordinator: SettingsScreenCoordinator) {
+        self.repositoryListViewCoordinator = repositoryListViewCoordinator
         self.settingsScreenCoordinator = settingsScreenCoordinator
         super.init(nibName: nil, bundle: nil)
         setupView()
@@ -30,12 +30,12 @@ private extension TabBarViewController {
         tabBar.isTranslucent = true
         tabBar.backgroundColor = .lightGray
         
-        let settingsScreenViewController = settingsScreenCoordinator.rootViewController
-        let mainScreenViewController = mainScreenCoordinator.rootViewController
-        
-        mainScreenViewController.tabBarItem = UITabBarItem(title: "Main Screen", image: UIImage(systemName: "house"), tag: 0)
+        let settingsScreenViewController = settingsScreenCoordinator.navigationController
+        let repositoryListNavigationController = repositoryListViewCoordinator.navigationController
+                
+        repositoryListNavigationController.tabBarItem = UITabBarItem(title: "Main Screen", image: UIImage(systemName: "house"), tag: 0)
         settingsScreenViewController.tabBarItem = UITabBarItem(title: "Settings", image: UIImage(systemName: "gear"), tag: 1)
         
-        viewControllers = [mainScreenViewController, settingsScreenViewController]
+        viewControllers = [repositoryListNavigationController, settingsScreenViewController]
     }
 }

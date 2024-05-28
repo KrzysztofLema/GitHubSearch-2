@@ -9,11 +9,9 @@ import UIKit
 
 final class SettingsScreenCoordinator: Coordinator {
     
-    let rootViewController = UINavigationController()
-    
     override func start() {
         let settingsViewController = makeSettingsViewController()
-        rootViewController.setViewControllers([settingsViewController], animated: true)
+        navigationController.setViewControllers([settingsViewController], animated: true)
     }
     
     private func makeSettingsViewController() -> SettingsViewController {
