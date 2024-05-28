@@ -7,11 +7,18 @@
 
 import UIKit
 
-class TabBarCoordinator: Coordinator {
+protocol TabBarCoordinatorDelegate: AnyObject {
+    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: TabBarCoordinator)
+}
+
+final class TabBarCoordinator: Coordinator {
+    
+    weak var delegate: TabBarCoordinatorDelegate?
     
     override func start() {
+        navigationController.navigationBar.isHidden = true
         let rootViewController = TabBarViewController(
-            mainScreenCoordinator: makeMainScreenCoordinator(),
+            repositoryListViewCoordinator: makeRepositoryListViewCoordinator(),
             settingsScreenCoordinator: makeSettingsScreenViewCoordinator()
         )
         navigationController.pushViewController(rootViewController, animated: true)
@@ -20,7 +27,7 @@ class TabBarCoordinator: Coordinator {
 
 private extension TabBarCoordinator {
     func makeSettingsScreenViewCoordinator() -> SettingsScreenCoordinator {
-        let settingsScreenCoordinator = SettingsScreenCoordinator(navigationController: navigationController)
+        let settingsScreenCoordinator = SettingsScreenCoordinator(navigationController: UINavigationController())
         settingsScreenCoordinator.start()
         
         addChild(settingsScreenCoordinator)
@@ -28,12 +35,20 @@ private extension TabBarCoordinator {
         return settingsScreenCoordinator
     }
     
-    func makeMainScreenCoordinator() -> MainScreenCoordinator {
-        let mainScreenCoordinator = MainScreenCoordinator(navigationController: navigationController)
-        mainScreenCoordinator.start()
+    func makeRepositoryListViewCoordinator() -> RepositoryListViewCoordinator {
+        let repositoryListViewCoordinator = RepositoryListViewCoordinator(navigationController: UINavigationController())
+        repositoryListViewCoordinator.start()
         
-        addChild(mainScreenCoordinator)
+        repositoryListViewCoordinator.delegate = self
         
-        return mainScreenCoordinator
+        addChild(repositoryListViewCoordinator)
+        
+        return repositoryListViewCoordinator
+    }
+}
+
+extension TabBarCoordinator: RepositoryListViewCoordinatorDelegate {
+    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: RepositoryListViewCoordinator) {
+        delegate?.repositoryListViewCoordinatorDidSelectRow(self)
     }
 }
