@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct Item {
+struct Item: Equatable {
     var id: Int?
     var name: String?
     var fullName: String?
     var owner: Owner
-    var url: URL?
+    var htmlUrl: URL?
     var description: String?
 }
 
@@ -22,7 +22,7 @@ extension Item {
         name = dto.name
         fullName = dto.htmlUrl
         owner = Owner(dto: dto.owner)
-        url = URL(string: dto.url ?? "")
+        htmlUrl = URL(string: dto.htmlUrl ?? "")
         description = dto.description
     }
 }

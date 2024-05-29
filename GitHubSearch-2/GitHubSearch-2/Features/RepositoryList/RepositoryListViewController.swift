@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 protocol RepositoryListViewControllerDelegate: AnyObject {
-    func repositoryListViewControllerDidSelectRow(_ repositoryListViewController: RepositoryListViewController)
+    func repositoryListViewController(_ repositoryListViewController: RepositoryListViewController, didSelect: Item)
 }
 
 final class RepositoryListViewController: BasicViewController {
@@ -53,7 +53,7 @@ final class RepositoryListViewController: BasicViewController {
 }
 
 extension RepositoryListViewController: RepositoryListViewDelegate {
-    func repositoryListViewDidSelectRow(_ repositoryListView: RepositoryListView) {
-        delegate?.repositoryListViewControllerDidSelectRow(self)
+    func repositoryListView(_ repositoryListView: RepositoryListView, didSelect item: Item) {
+        delegate?.repositoryListViewController(self, didSelect: item)
     }
 }

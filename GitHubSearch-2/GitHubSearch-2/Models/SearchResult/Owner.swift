@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Owner {
+struct Owner: Equatable {
     var avatar: URL?
     
     init(dto: OwnerDTO?) {
