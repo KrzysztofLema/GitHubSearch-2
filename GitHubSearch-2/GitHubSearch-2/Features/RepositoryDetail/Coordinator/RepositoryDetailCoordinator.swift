@@ -6,17 +6,38 @@
 //
 
 import Foundation
+import SafariServices
+
+protocol RepositoryDetailCoordinatorDelegate: AnyObject {
+    func repositoryDetailCoordinatorDidFinish(_ coordinator: Coordinator)
+}
 
 final class RepositoryDetailCoordinator: Coordinator {
-    override func start() {
-        let viewController = makeRepositoryDetailViewController()
-     
-        navigationController.setViewControllers([viewController], animated: true)
+    
+    public weak var delegate: RepositoryDetailCoordinatorDelegate?
+    
+    private let item: Item
+    
+    init(navigationController: UINavigationController, item: Item) {
+        self.item = item
+        
+        super.init(navigationController: navigationController)
     }
     
-    private func makeRepositoryDetailViewController() -> RepositoryDetailViewController {
-        let viewModel = RepositoryDetailViewModel()
-        let viewController = RepositoryDetailViewController()
-        return viewController
+    override func start() {
+        guard let htmlUrl = item.htmlUrl else {
+            return
+        }
+        
+        let viewController = SFSafariViewController(url: htmlUrl)
+        viewController.delegate = self
+        
+        navigationController.present(viewController, animated: true)
+    }
+}
+
+extension RepositoryDetailCoordinator: SFSafariViewControllerDelegate {
+    func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        delegate?.repositoryDetailCoordinatorDidFinish(self)
     }
 }

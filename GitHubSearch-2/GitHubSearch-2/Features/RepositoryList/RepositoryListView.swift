@@ -14,7 +14,7 @@ enum CellIdentifier: String {
 }
 
 protocol RepositoryListViewDelegate: AnyObject {
-    func repositoryListViewDidSelectRow(_ repositoryListView: RepositoryListView)
+    func repositoryListView(_ repositoryListView: RepositoryListView, didSelect item: Item)
 }
 
 final class RepositoryListView: BasicView {
@@ -88,6 +88,8 @@ extension RepositoryListView: UITableViewDataSource {
 
 extension RepositoryListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        delegate?.repositoryListViewDidSelectRow(self)
+        let item = searchResults[indexPath.row]
+        
+        delegate?.repositoryListView(self, didSelect: item)
     }
 }

@@ -24,15 +24,15 @@ class ApplicationCoordinator: Coordinator {
         switch deepLink {
         case .home:
             startHomeCoordinator()
-        case .repositoryDetail:
-            startRepositoryDetailCoordinator()
+        case let .repositoryDetail(item):
+            startRepositoryDetailCoordinator(item: item)
         }
     }
 }
 
 enum DeepLink: Equatable {
     case home
-    case repositoryDetail
+    case repositoryDetail(item: Item)
 }
 
 extension ApplicationCoordinator {
@@ -43,15 +43,24 @@ extension ApplicationCoordinator {
         addChild(startHomeCoordinator)
     }
     
-    func startRepositoryDetailCoordinator() {
-        let startRepositoryDetailCoordinator = RepositoryDetailCoordinator(navigationController: navigationController)
+    func startRepositoryDetailCoordinator(item: Item) {
+        let startRepositoryDetailCoordinator = RepositoryDetailCoordinator(navigationController: navigationController, item: item)
         startRepositoryDetailCoordinator.start()
+        
+        startRepositoryDetailCoordinator.delegate = self
+        
         addChild(startRepositoryDetailCoordinator)
     }
 }
 
 extension ApplicationCoordinator: TabBarCoordinatorDelegate {
-    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: TabBarCoordinator) {
-        startChild(for: .repositoryDetail, sourceCoordinator: self)
+    func repositoryListViewCoordinator(_ coordinator: TabBarCoordinator, didSelect item: Item) {
+        startChild(for: .repositoryDetail(item: item), sourceCoordinator: self)
+    }
+}
+
+extension ApplicationCoordinator: RepositoryDetailCoordinatorDelegate {
+    func repositoryDetailCoordinatorDidFinish(_ coordinator: Coordinator) {
+        removeChild(coordinator)
     }
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol TabBarCoordinatorDelegate: AnyObject {
-    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: TabBarCoordinator)
+    func repositoryListViewCoordinator(_ coordinator: TabBarCoordinator, didSelect item: Item)
 }
 
 final class TabBarCoordinator: Coordinator {
@@ -48,7 +48,7 @@ private extension TabBarCoordinator {
 }
 
 extension TabBarCoordinator: RepositoryListViewCoordinatorDelegate {
-    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: RepositoryListViewCoordinator) {
-        delegate?.repositoryListViewCoordinatorDidSelectRow(self)
+    func repositoryListViewCoordinator(_ coordinator: RepositoryListViewCoordinator, didSelect item: Item) {
+        delegate?.repositoryListViewCoordinator(self, didSelect: item)
     }
 }

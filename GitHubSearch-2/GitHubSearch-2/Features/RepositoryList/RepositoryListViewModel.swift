@@ -25,20 +25,18 @@ final class RepositoryListViewModel {
     
     func searchForGitHubRepositories(using input: String) {
         do {
-            try self.searchService.search(with: input, page: 1, sortType: .forks, orderType: .desc)
+            try searchService.search(with: input, page: 1, sortType: .forks, orderType: .desc)
                 .receive(on: DispatchQueue.main)
+                .assertNoFailure()
                 .map(\.items)
-                .sink(receiveCompletion: { _ in
-                }, receiveValue: {
-                    self.update(searchResults: $0)
-                })
+                .assign(to: \.searchResults , on: self)
                 .store(in: &cancellables)
         } catch let error {
             
         }
     }
     
-    private func update(searchResults: [Item]) {
+    private func update(with searchResults: [Item]) {
         self.searchResults = searchResults
     }
 }

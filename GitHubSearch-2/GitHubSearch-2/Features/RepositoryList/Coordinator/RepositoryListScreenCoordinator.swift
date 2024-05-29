@@ -8,7 +8,7 @@
 import UIKit
 
 protocol RepositoryListViewCoordinatorDelegate: AnyObject {
-    func repositoryListViewCoordinatorDidSelectRow(_ coordinator: RepositoryListViewCoordinator)
+    func repositoryListViewCoordinator(_ coordinator: RepositoryListViewCoordinator, didSelect item: Item)
 }
 
 final class RepositoryListViewCoordinator: Coordinator {
@@ -18,7 +18,7 @@ final class RepositoryListViewCoordinator: Coordinator {
     override func start() {
         let viewController = makeRepositoryListViewController()
         
-        navigationController.setViewControllers([viewController], animated: true)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
     private func makeRepositoryListViewController() -> RepositoryListViewController {
@@ -32,7 +32,7 @@ final class RepositoryListViewCoordinator: Coordinator {
 }
 
 extension RepositoryListViewCoordinator: RepositoryListViewControllerDelegate {
-    func repositoryListViewControllerDidSelectRow(_ repositoryListViewController: RepositoryListViewController) {
-        delegate?.repositoryListViewCoordinatorDidSelectRow(self)
+    func repositoryListViewController(_ repositoryListViewController: RepositoryListViewController, didSelect item: Item) {
+        delegate?.repositoryListViewCoordinator(self, didSelect: item)
     }
 }
