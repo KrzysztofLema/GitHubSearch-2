@@ -11,6 +11,6 @@ struct Owner {
     var avatar: URL?
     
     init(dto: OwnerDTO?) {
-        self.avatar = URL(string: dto?.avatarURL ?? "")
+        self.avatar = URL(string: dto?.avatarUrl ?? "")
     }
 }
