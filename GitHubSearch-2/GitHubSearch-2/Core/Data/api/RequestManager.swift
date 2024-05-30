@@ -29,33 +29,15 @@ final class RequestManager: RequestManagerType {
         
         return perform(try request.createURLRequest())
             .subscribe(on: apiQueue)
-            .flatMap { data in
-                self.dataParser.parse(data: data)
-            }
+            .flatMap(dataParser.decode(data:))
             .eraseToAnyPublisher()
     }
     
     private func perform(_ request: URLRequest) -> AnyPublisher<Data, NetworkError> {
         urlSession.dataTaskPublisher(for: request)
-            .tryMap { data, response -> Data in
-                guard let response = response as? HTTPURLResponse else {
-                    throw NetworkError.responseMissing
-                }
-                return data
-            }.mapError { [weak self] error in
-                guard let self else {
-                    return .networkError
-                }
-                return self.mapRequestError(error)
-            }.flatMap { [weak self] data in
-                guard let self else {
-                    return Fail<Data, NetworkError>(error: NetworkError.invalidURL)
-                        .eraseToAnyPublisher()
-                }
-                return Just(data)
-                    .setFailureType(to: NetworkError.self)
-                    .eraseToAnyPublisher()
-            }
+            .map(\.data)
+            .mapError(mapRequestError(_:))
+            .flatMap(flatMapRequestData(_ :))
             .eraseToAnyPublisher()
     }
     
@@ -66,6 +48,12 @@ final class RequestManager: RequestManagerType {
         }
         
         return .notConnectedToInternet
+    }
+    
+    private func flatMapRequestData(_ data: Data) -> AnyPublisher<Data, NetworkError> {
+        Just(data)
+            .setFailureType(to: NetworkError.self)
+            .eraseToAnyPublisher()
     }
 }
 

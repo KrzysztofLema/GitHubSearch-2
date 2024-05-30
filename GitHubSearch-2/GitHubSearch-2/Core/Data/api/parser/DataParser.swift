@@ -9,7 +9,7 @@ import Combine
 import Foundation
 
 protocol DataParserType {
-    func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError>
+    func decode<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError>
 }
 
 final class DataParser: DataParserType {
@@ -18,17 +18,19 @@ final class DataParser: DataParserType {
     
     init(jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.jsonDecoder = jsonDecoder
-        self.jsonDecoder.keyDecodingStrategy = .convertFromSnakeCase
     }
     
-    func parse<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {
+    func decode<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {
         do {
             return Just(try jsonDecoder.decode(T.self, from: data))
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
-        } catch {
+        } catch let error {
+            #if DEBUG
+            print("Decode error = \(error)")
+            #endif
             return Fail(error: NetworkError.dataParsingFailed)
-                .eraseToAnyPublisher()
+                    .eraseToAnyPublisher()
         }
     }
 }

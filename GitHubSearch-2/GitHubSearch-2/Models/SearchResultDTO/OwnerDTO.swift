@@ -1,34 +1,47 @@
 struct OwnerDTO: Codable {
+    let name: String?
+    let email: String?
     let login: String?
     let id: Int?
-    let nodeID: String?
-    let avatarURL: String?
-    let gravatarID: String?
-    let url, receivedEventsURL: String?
+    let nodeId: String?
+    let avatarUrl: String?
+    let gravatarId: String?
+    let url: String?
+    let htmlUrl: String?
+    let followersUrl: String
+    let followingUrl:String?
+    let gistsUrl: String?
+    let starredUrl: String?
+    let subscriptionsUrl:String?
+    let organizationsUrl: String?
+    let reposUrl: String?
+    let eventsUrl: String?
+    let receivedEventsUrl: String?
     let type: String?
-    let htmlURL, followersURL: String?
-    let followingURL, gistsURL, starredURL: String?
-    let subscriptionsURL, organizationsURL, reposURL: String?
-    let eventsURL: String?
-    let siteAdmin: Bool?
-
+    let siteAdmin: Bool
+    let starredAt: Bool?
+    
     enum CodingKeys: String, CodingKey {
-        case login, id
-        case nodeID = "node_id"
-        case avatarURL = "avatar_url"
-        case gravatarID = "gravatar_id"
+        case name
+        case email
+        case login
+        case id
+        case nodeId = "node_id"
+        case avatarUrl = "avatar_url"
+        case gravatarId = "gravatar_id"
         case url
-        case receivedEventsURL = "received_events_url"
+        case htmlUrl = "html_url"
+        case followersUrl = "followers_url"
+        case followingUrl = "following_url"
+        case gistsUrl = "gists_url"
+        case starredUrl = "starred_url"
+        case subscriptionsUrl = "subscriptions_url"
+        case organizationsUrl = "organizations_url"
+        case reposUrl = "repos_url"
+        case eventsUrl = "events_url"
+        case receivedEventsUrl = "received_events_url"
         case type
-        case htmlURL = "html_url"
-        case followersURL = "followers_url"
-        case followingURL = "following_url"
-        case gistsURL = "gists_url"
-        case starredURL = "starred_url"
-        case subscriptionsURL = "subscriptions_url"
-        case organizationsURL = "organizations_url"
-        case reposURL = "repos_url"
-        case eventsURL = "events_url"
         case siteAdmin = "site_admin"
+        case starredAt = "starred_at"
     }
 }

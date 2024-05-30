@@ -1,15 +1,19 @@
 import Foundation
 
 struct LicenseDTO: Codable {
-    let key, name: String?
+    let key: String
+    let name: String?
     let url: String?
-    let spdxID, nodeID: String?
-    let htmlURL: String?
-
+    let spdxId: String
+    let nodeId: String?
+    let htmlUrl: String?
+    
     enum CodingKeys: String, CodingKey {
-        case key, name, url
-        case spdxID = "spdx_id"
-        case nodeID = "node_id"
-        case htmlURL = "html_url"
+        case key
+        case name
+        case url
+        case spdxId = "spdx_id"
+        case nodeId = "node_id"
+        case htmlUrl = "html_url"
     }
 }
