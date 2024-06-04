@@ -14,6 +14,10 @@
 		951BFA242BF92C330019B430 /* SettingsScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA232BF92C330019B430 /* SettingsScreenCoordinator.swift */; };
 		951BFA272BF92CC70019B430 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA262BF92CC70019B430 /* SettingsViewController.swift */; };
 		951BFA292BF92CE20019B430 /* RepositoryListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA282BF92CE20019B430 /* RepositoryListViewController.swift */; };
+		951F35232C0F6CAC002B4607 /* GitHubLanguageColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35212C0F6CAC002B4607 /* GitHubLanguageColors.swift */; };
+		951F35242C0F6CAC002B4607 /* GitHubLanguageColorsDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35222C0F6CAC002B4607 /* GitHubLanguageColorsDTO.swift */; };
+		951F35272C0F6D25002B4607 /* GitHubLanguageColorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35262C0F6D25002B4607 /* GitHubLanguageColorsStore.swift */; };
+		951F352B2C0F6D6E002B4607 /* GitHubLanguageColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 951F352A2C0F6D6E002B4607 /* GitHubLanguageColors.json */; };
 		959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B42C03A74800048438 /* ObservableSearchController.swift */; };
 		959276B82C03BA9E00048438 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B72C03BA9E00048438 /* UIColor+Hex.swift */; };
 		959276BA2C03BAC100048438 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B92C03BAC100048438 /* Color.swift */; };
@@ -80,6 +84,10 @@
 		951BFA232BF92C330019B430 /* SettingsScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreenCoordinator.swift; sourceTree = "<group>"; };
 		951BFA262BF92CC70019B430 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		951BFA282BF92CE20019B430 /* RepositoryListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewController.swift; sourceTree = "<group>"; };
+		951F35212C0F6CAC002B4607 /* GitHubLanguageColors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubLanguageColors.swift; sourceTree = "<group>"; };
+		951F35222C0F6CAC002B4607 /* GitHubLanguageColorsDTO.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubLanguageColorsDTO.swift; sourceTree = "<group>"; };
+		951F35262C0F6D25002B4607 /* GitHubLanguageColorsStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubLanguageColorsStore.swift; sourceTree = "<group>"; };
+		951F352A2C0F6D6E002B4607 /* GitHubLanguageColors.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = GitHubLanguageColors.json; sourceTree = "<group>"; };
 		959276B42C03A74800048438 /* ObservableSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSearchController.swift; sourceTree = "<group>"; };
 		959276B72C03BA9E00048438 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		959276B92C03BAC100048438 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
@@ -215,6 +223,31 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		951F35202C0F6CAC002B4607 /* GitHubLanguageColors */ = {
+			isa = PBXGroup;
+			children = (
+				951F35212C0F6CAC002B4607 /* GitHubLanguageColors.swift */,
+				951F35222C0F6CAC002B4607 /* GitHubLanguageColorsDTO.swift */,
+			);
+			path = GitHubLanguageColors;
+			sourceTree = "<group>";
+		};
+		951F35252C0F6CBF002B4607 /* stores */ = {
+			isa = PBXGroup;
+			children = (
+				951F35262C0F6D25002B4607 /* GitHubLanguageColorsStore.swift */,
+			);
+			path = stores;
+			sourceTree = "<group>";
+		};
+		951F35292C0F6D50002B4607 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				951F352A2C0F6D6E002B4607 /* GitHubLanguageColors.json */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
 		959276B62C03B95200048438 /* Style */ = {
 			isa = PBXGroup;
 			children = (
@@ -248,17 +281,18 @@
 		959FB6702BF7E24E0042C394 /* GitHubSearch-2 */ = {
 			isa = PBXGroup;
 			children = (
-				959FB67F2BF7E24F0042C394 /* Info.plist */,
 				959FB6712BF7E24E0042C394 /* AppDelegate.swift */,
-				959FB6732BF7E24E0042C394 /* SceneDelegate.swift */,
 				959FB67A2BF7E24F0042C394 /* Assets.xcassets */,
 				951BFA112BF8B5FD0019B430 /* Coordinators */,
 				95CC38AC2BFB89E8005EA562 /* Core */,
 				95B101672C032A5900F82CFA /* CoreUI */,
 				95B1015A2C01D29400F82CFA /* DependencyInjection */,
 				951BFA192BF920C00019B430 /* Features */,
+				959FB67F2BF7E24F0042C394 /* Info.plist */,
 				959FB67C2BF7E24F0042C394 /* LaunchScreen.storyboard */,
 				95CC38BC2BFBCE54005EA562 /* Models */,
+				959FB6732BF7E24E0042C394 /* SceneDelegate.swift */,
+				951F35292C0F6D50002B4607 /* SupportingFiles */,
 			);
 			path = "GitHubSearch-2";
 			sourceTree = "<group>";
@@ -327,6 +361,7 @@
 		95CC38AD2BFB89F3005EA562 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				951F35252C0F6CBF002B4607 /* stores */,
 				95CC38AE2BFB8A56005EA562 /* api */,
 			);
 			path = Data;
@@ -359,10 +394,11 @@
 			isa = PBXGroup;
 			children = (
 				95B101502BFFD12500F82CFA /* Errors */,
+				951F35202C0F6CAC002B4607 /* GitHubLanguageColors */,
+				95B101542BFFD56B00F82CFA /* OrderType.swift */,
 				95CC38D22BFCAE6C005EA562 /* SearchResult */,
 				95CC38C52BFC966B005EA562 /* SearchResultDTO */,
 				95B101522BFFD1A700F82CFA /* SortType.swift */,
-				95B101542BFFD56B00F82CFA /* OrderType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -526,6 +562,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				959FB67E2BF7E24F0042C394 /* LaunchScreen.storyboard in Resources */,
+				951F352B2C0F6D6E002B4607 /* GitHubLanguageColors.json in Resources */,
 				959FB67B2BF7E24F0042C394 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -588,12 +625,14 @@
 				951BFA132BF8B6250019B430 /* Coordinator.swift in Sources */,
 				959FB6722BF7E24E0042C394 /* AppDelegate.swift in Sources */,
 				95CC38C12BFBE00B005EA562 /* DataParser.swift in Sources */,
+				951F35272C0F6D25002B4607 /* GitHubLanguageColorsStore.swift in Sources */,
 				95CC38D12BFCAE41005EA562 /* LicenseDTO.swift in Sources */,
 				95CC38D42BFCC9A0005EA562 /* SearchResult.swift in Sources */,
 				951BFA272BF92CC70019B430 /* SettingsViewController.swift in Sources */,
 				95CC38C92BFCA151005EA562 /* ServiceError.swift in Sources */,
 				951BFA292BF92CE20019B430 /* RepositoryListViewController.swift in Sources */,
 				95CC38B02BFB8A63005EA562 /* RequestProtocol.swift in Sources */,
+				951F35232C0F6CAC002B4607 /* GitHubLanguageColors.swift in Sources */,
 				959276B82C03BA9E00048438 /* UIColor+Hex.swift in Sources */,
 				95B1016B2C032F7D00F82CFA /* RepositoryListView.swift in Sources */,
 				95B101692C032E0700F82CFA /* BasicViewController.swift in Sources */,
@@ -601,6 +640,7 @@
 				95CC38CF2BFCAE41005EA562 /* SearchResultResponseDTO.swift in Sources */,
 				951BFA242BF92C330019B430 /* SettingsScreenCoordinator.swift in Sources */,
 				959FB6742BF7E24E0042C394 /* SceneDelegate.swift in Sources */,
+				951F35242C0F6CAC002B4607 /* GitHubLanguageColorsDTO.swift in Sources */,
 				95CC38D62BFCCB68005EA562 /* Item.swift in Sources */,
 				95CC38CE2BFCAE41005EA562 /* OwnerDTO.swift in Sources */,
 				95EE22712C051795001AD6B8 /* RepositoryDetailCoordinator.swift in Sources */,
