@@ -81,7 +81,7 @@ struct ItemDTO: Codable {
          url: String?,
          createdAt: Date?,
          updatedAt: Date?,
-         pushedAt: Date?, 
+         pushedAt: Date?,
          homepage: String?,
          size: Int?,
          stargazersCount: Int,
