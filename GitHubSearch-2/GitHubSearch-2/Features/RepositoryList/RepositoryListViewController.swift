@@ -13,7 +13,7 @@ protocol RepositoryListViewControllerDelegate: AnyObject {
 }
 
 final class RepositoryListViewController: BasicViewController {
-
+    
     public weak var delegate: RepositoryListViewControllerDelegate?
     
     private let viewModel: RepositoryListViewModel
@@ -31,7 +31,7 @@ final class RepositoryListViewController: BasicViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        self.title = "Repository Search"
         (view as? RepositoryListView)?.delegate = self
         
         setupSearchViewController(with: viewModel)

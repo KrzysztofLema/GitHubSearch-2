@@ -23,7 +23,7 @@ final class RepositoryListViewModel {
             .store(in: &cancellables)
     }
     
-    func searchForGitHubRepositories(using input: String) {
+    private func searchForGitHubRepositories(using input: String) {
         do {
             try searchService.search(with: input, page: 1, sortType: .forks, orderType: .desc)
                 .receive(on: DispatchQueue.main)
@@ -31,7 +31,7 @@ final class RepositoryListViewModel {
                 .map(\.items)
                 .assign(to: \.searchResults , on: self)
                 .store(in: &cancellables)
-        } catch let error {
+        } catch let _ {
             
         }
     }

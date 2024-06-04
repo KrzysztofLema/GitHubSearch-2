@@ -67,4 +67,3 @@ extension InjectedValues {
         set { Self[RequestManagerKey.self] = newValue }
     }
 }
-
