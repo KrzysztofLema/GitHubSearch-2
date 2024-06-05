@@ -18,6 +18,7 @@ final class DataParser: DataParserType {
     
     init(jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.jsonDecoder = jsonDecoder
+        self.jsonDecoder.dateDecodingStrategy = .iso8601
     }
     
     func decode<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {

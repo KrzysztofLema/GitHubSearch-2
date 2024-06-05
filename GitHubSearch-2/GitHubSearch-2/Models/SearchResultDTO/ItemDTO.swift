@@ -11,9 +11,9 @@ struct ItemDTO: Codable {
     let description: String?
     let fork: Bool?
     let url: String?
-    let createdAt: String?
-    let updatedAt: String?
-    let pushedAt: String?
+    let createdAt: Date?
+    let updatedAt: Date?
+    let pushedAt: Date?
     let homepage: String?
     let size: Int?
     let stargazersCount: Int?
@@ -79,9 +79,9 @@ struct ItemDTO: Codable {
          description: String?,
          fork: Bool?,
          url: String?,
-         createdAt: String?,
-         updatedAt: String?,
-         pushedAt: String?, 
+         createdAt: Date?,
+         updatedAt: Date?,
+         pushedAt: Date?, 
          homepage: String?,
          size: Int?,
          stargazersCount: Int,
