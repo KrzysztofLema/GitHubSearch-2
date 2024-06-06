@@ -10,7 +10,7 @@ import Foundation
 class ApplicationCoordinator: Coordinator {
     
     override func start() {
-        startChild(for: .home, sourceCoordinator: self)
+        startLoginScreenCoordinator()
     }
     
     func startChild(for deepLink: DeepLink,
@@ -26,11 +26,14 @@ class ApplicationCoordinator: Coordinator {
             startHomeCoordinator()
         case let .repositoryDetail(item):
             startRepositoryDetailCoordinator(item: item)
+        case .loginScreen:
+            startLoginScreenCoordinator()
         }
     }
 }
 
 enum DeepLink: Equatable {
+    case loginScreen
     case home
     case repositoryDetail(item: Item)
 }
@@ -45,11 +48,19 @@ extension ApplicationCoordinator {
     
     func startRepositoryDetailCoordinator(item: Item) {
         let startRepositoryDetailCoordinator = RepositoryDetailCoordinator(navigationController: navigationController, item: item)
+        startRepositoryDetailCoordinator.delegate = self
         startRepositoryDetailCoordinator.start()
         
-        startRepositoryDetailCoordinator.delegate = self
-        
         addChild(startRepositoryDetailCoordinator)
+    }
+    
+    func startLoginScreenCoordinator() {
+        let startLoginScreenCoordinator = LoginScreenCoordinator(navigationController: navigationController)
+        
+        startLoginScreenCoordinator.delegate = self
+        addChild(startLoginScreenCoordinator)
+        
+        startLoginScreenCoordinator.start()
     }
 }
 
@@ -62,5 +73,12 @@ extension ApplicationCoordinator: TabBarCoordinatorDelegate {
 extension ApplicationCoordinator: RepositoryDetailCoordinatorDelegate {
     func repositoryDetailCoordinatorDidFinish(_ coordinator: Coordinator) {
         removeChild(coordinator)
+    }
+}
+
+extension ApplicationCoordinator: LoginScreenCoordinatorDelegate {
+    func loginScreenCoordinatorSignInTapped(_ loginScreenCoordinator: LoginScreenCoordinator) {
+        removeChild(loginScreenCoordinator)
+        startChild(for: .home, sourceCoordinator: self)
     }
 }

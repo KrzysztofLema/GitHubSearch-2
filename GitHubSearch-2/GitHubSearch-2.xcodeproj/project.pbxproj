@@ -60,6 +60,12 @@
 		951F35962C10A75C002B4607 /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 951F35952C10A75C002B4607 /* FirebaseRemoteConfigSwift */; };
 		951F35982C10A75C002B4607 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 951F35972C10A75C002B4607 /* FirebaseStorage */; };
 		951F359A2C10A75C002B4607 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 951F35992C10A75C002B4607 /* FirebaseStorageCombine-Community */; };
+		951F35A02C10E04D002B4607 /* LoginScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F359F2C10E04D002B4607 /* LoginScreenViewController.swift */; };
+		951F35A22C10E05B002B4607 /* LoginScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35A12C10E05B002B4607 /* LoginScreenCoordinator.swift */; };
+		951F35A42C10E08E002B4607 /* LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35A32C10E08E002B4607 /* LoginScreenView.swift */; };
+		953CC6E52C1225D20006D172 /* LoginScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953CC6E42C1225D20006D172 /* LoginScreenViewModel.swift */; };
+		953CC6EA2C12F5420006D172 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953CC6E92C12F5420006D172 /* Credentials.swift */; };
+		953CC6EC2C12FE840006D172 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 953CC6EB2C12FE840006D172 /* LoginTextField.swift */; };
 		95429BBA2C090AB900BCD09D /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BB92C090AB900BCD09D /* RepositoryListCell.swift */; };
 		95429BBD2C09166E00BCD09D /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */; };
 		959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B42C03A74800048438 /* ObservableSearchController.swift */; };
@@ -141,6 +147,12 @@
 		951F354A2C0F8D56002B4607 /* CollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		951F354F2C103D14002B4607 /* FooterStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterStackView.swift; sourceTree = "<group>"; };
 		951F35602C10A614002B4607 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		951F359F2C10E04D002B4607 /* LoginScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewController.swift; sourceTree = "<group>"; };
+		951F35A12C10E05B002B4607 /* LoginScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenCoordinator.swift; sourceTree = "<group>"; };
+		951F35A32C10E08E002B4607 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		953CC6E42C1225D20006D172 /* LoginScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenViewModel.swift; sourceTree = "<group>"; };
+		953CC6E92C12F5420006D172 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		953CC6EB2C12FE840006D172 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		95429BB92C090AB900BCD09D /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
 		95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
 		959276B42C03A74800048438 /* ObservableSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSearchController.swift; sourceTree = "<group>"; };
@@ -248,6 +260,7 @@
 		951BFA192BF920C00019B430 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				951F359D2C10E029002B4607 /* Login */,
 				95EE226E2C05165B001AD6B8 /* RepositoryDetail */,
 				951BFA222BF92C040019B430 /* Settings */,
 				951BFA1E2BF929A10019B430 /* RepositoryList */,
@@ -366,6 +379,25 @@
 			path = SupportingFiles;
 			sourceTree = "<group>";
 		};
+		951F359D2C10E029002B4607 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				951F359E2C10E037002B4607 /* Coordinator */,
+				951F359F2C10E04D002B4607 /* LoginScreenViewController.swift */,
+				951F35A32C10E08E002B4607 /* LoginScreenView.swift */,
+				953CC6E42C1225D20006D172 /* LoginScreenViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		951F359E2C10E037002B4607 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				951F35A12C10E05B002B4607 /* LoginScreenCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		95429BB82C090AA400BCD09D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -478,6 +510,7 @@
 				95B1016C2C03306100F82CFA /* BasicView.swift */,
 				95CDB0DC2C04A86800BFACCA /* NavigationController.swift */,
 				951F354F2C103D14002B4607 /* FooterStackView.swift */,
+				953CC6EB2C12FE840006D172 /* LoginTextField.swift */,
 			);
 			path = CoreUI;
 			sourceTree = "<group>";
@@ -538,6 +571,7 @@
 				95B101542BFFD56B00F82CFA /* OrderType.swift */,
 				95B101522BFFD1A700F82CFA /* SortType.swift */,
 				951F35072C0D0689002B4607 /* ItemViewModel.swift */,
+				953CC6E92C12F5420006D172 /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -764,8 +798,11 @@
 				95B101662C03188800F82CFA /* InjectedValues.swift in Sources */,
 				951F351F2C0F165B002B4607 /* FooterReposiotoryTextBuilder.swift in Sources */,
 				95B101552BFFD56B00F82CFA /* OrderType.swift in Sources */,
+				953CC6EA2C12F5420006D172 /* Credentials.swift in Sources */,
 				95CC38B42BFB8D4F005EA562 /* APIConstants.swift in Sources */,
 				951F353C2C0F7672002B4607 /* OwnerDTO.swift in Sources */,
+				951F35A22C10E05B002B4607 /* LoginScreenCoordinator.swift in Sources */,
+				953CC6E52C1225D20006D172 /* LoginScreenViewModel.swift in Sources */,
 				95CC38BB2BFB9595005EA562 /* RequestManager.swift in Sources */,
 				959276BA2C03BAC100048438 /* Color.swift in Sources */,
 				951F35322C0F766D002B4607 /* SearchResult.swift in Sources */,
@@ -789,6 +826,7 @@
 				951F35492C0F8BA8002B4607 /* GitHubLanguageColorsStore.swift in Sources */,
 				951BFA242BF92C330019B430 /* SettingsScreenCoordinator.swift in Sources */,
 				959FB6742BF7E24E0042C394 /* SceneDelegate.swift in Sources */,
+				953CC6EC2C12FE840006D172 /* LoginTextField.swift in Sources */,
 				95EE22712C051795001AD6B8 /* RepositoryDetailCoordinator.swift in Sources */,
 				951F351C2C0F0AD7002B4607 /* Optional+Extensions.swift in Sources */,
 				951F353B2C0F7672002B4607 /* LicenseDTO.swift in Sources */,
@@ -804,6 +842,8 @@
 				959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */,
 				951F35332C0F766D002B4607 /* Owner.swift in Sources */,
 				951F350A2C0D0866002B4607 /* Int+Extensions.swift in Sources */,
+				951F35A02C10E04D002B4607 /* LoginScreenViewController.swift in Sources */,
+				951F35A42C10E08E002B4607 /* LoginScreenView.swift in Sources */,
 				95429BBA2C090AB900BCD09D /* RepositoryListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -978,7 +1018,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHubSearch-2/SupportingFiles/Info.plist";
@@ -1008,7 +1048,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "GitHubSearch-2/SupportingFiles/Info.plist";
