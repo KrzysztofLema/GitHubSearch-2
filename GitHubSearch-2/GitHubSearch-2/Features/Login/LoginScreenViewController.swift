@@ -24,8 +24,7 @@ final class LoginScreenViewController: BasicViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        (view as? LoginScreenView)?.delegate = self
+        viewModel.delegate = self
     }
     
     override func loadView() {
@@ -33,9 +32,8 @@ final class LoginScreenViewController: BasicViewController {
     }
 }
 
-extension LoginScreenViewController: LoginScreenViewDelegate {
-    func loginScreenViewSignInButtonTapped(_ loginViewModel: LoginScreenView) {
+extension LoginScreenViewController: LoginScreenViewModelDelegate {
+    func loginScreenViewModelDidTapSingInButton(_ loginViewModel: LoginScreenViewModel) {
         delegate?.loginScreenViewControllerSignInTapped(self)
-
     }
 }

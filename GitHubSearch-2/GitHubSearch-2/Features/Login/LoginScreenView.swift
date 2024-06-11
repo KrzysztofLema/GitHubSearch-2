@@ -5,8 +5,10 @@
 //  Created by Krzysztof Lema on 05/06/2024.
 //
 
-import UIKit
+import Combine
+import CocoaLumberjackSwift
 import TinyConstraints
+import UIKit
 
 protocol LoginScreenViewDelegate: AnyObject {
     func loginScreenViewSignInButtonTapped(_ loginViewModel: LoginScreenView)
@@ -17,27 +19,25 @@ final class LoginScreenView: BasicView {
     weak var delegate: LoginScreenViewDelegate?
     
     private let viewModel: LoginScreenViewModel
-    
     private let contentView = UIView()
-    
     private let logoImageView = UIImageView()
     private let loginTitleLabel = UILabel()
-    
     private let inputStackView = UIStackView()
-    
     private let emailStackView = UIStackView()
     private let emailIcon = UIImageView()
     private let emailTextField = LoginTextField()
-    
     private let passwordStackView = UIStackView()
     private let passwordIcon = UIImageView()
     private let passwordTextField = LoginTextField()
-    
     private let signInButton = UIButton()
-
+    
+    private var cancellables = Set<AnyCancellable>()
+    
     init(viewModel: LoginScreenViewModel) {
         self.viewModel = viewModel
         super.init()
+        
+        bindView()
     }
     
     override func addSubviews() {
@@ -70,7 +70,7 @@ final class LoginScreenView: BasicView {
         loginTitleLabel.text = "Log in"
         loginTitleLabel.textColor = Color.darkTextColor
         loginTitleLabel.font = .systemFont(ofSize: 35, weight: .heavy)
-                
+        
         inputStackView.axis = .vertical
         inputStackView.spacing = 5
         
@@ -129,7 +129,22 @@ final class LoginScreenView: BasicView {
         signInButton.centerXToSuperview()
     }
     
+    func bindView() {
+        emailTextField
+            .textPublisher
+            .map { $0 }
+            .assign(to: \.email, on: viewModel)
+            .store(in: &cancellables)
+        
+        passwordTextField
+            .textPublisher
+            .map { $0 }
+            .assign(to: \.password, on: viewModel)
+            .store(in: &cancellables)
+    }
+    
     @objc private  func loginButtonTapped() {
-        delegate?.loginScreenViewSignInButtonTapped(self)
+        DDLogInfo("User did tap login button")
+        viewModel.logIn()
     }
 }
