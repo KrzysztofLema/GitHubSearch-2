@@ -76,6 +76,9 @@
 		959FB6892BF7E24F0042C394 /* GitHubSearch_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6882BF7E24F0042C394 /* GitHubSearch_2Tests.swift */; };
 		959FB6932BF7E24F0042C394 /* GitHubSearch_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6922BF7E24F0042C394 /* GitHubSearch_2UITests.swift */; };
 		959FB6952BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */; };
+		95A67A5D2C1620C70056B08A /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A5C2C1620C70056B08A /* FirebaseProvider.swift */; };
+		95A67A612C1623F80056B08A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A602C1623F80056B08A /* AuthenticationService.swift */; };
+		95A67A652C1850890056B08A /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A642C1850890056B08A /* UITextField+Extensions.swift */; };
 		95B101532BFFD1A700F82CFA /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101522BFFD1A700F82CFA /* SortType.swift */; };
 		95B101552BFFD56B00F82CFA /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101542BFFD56B00F82CFA /* OrderType.swift */; };
 		95B101632C020D8100F82CFA /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101622C020D8100F82CFA /* RepositoryListViewModel.swift */; };
@@ -166,6 +169,10 @@
 		959FB68E2BF7E24F0042C394 /* GitHubSearch-2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GitHubSearch-2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		959FB6922BF7E24F0042C394 /* GitHubSearch_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearch_2UITests.swift; sourceTree = "<group>"; };
 		959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubSearch_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
+		95A67A5B2C161F910056B08A /* GitHubSearch-2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "GitHubSearch-2.entitlements"; sourceTree = "<group>"; };
+		95A67A5C2C1620C70056B08A /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
+		95A67A602C1623F80056B08A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		95A67A642C1850890056B08A /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
 		95B101522BFFD1A700F82CFA /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		95B101542BFFD56B00F82CFA /* OrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
 		95B101622C020D8100F82CFA /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
@@ -414,6 +421,7 @@
 				951F35192C0F0906002B4607 /* UIView+Extensions.swift */,
 				951F351B2C0F0AD7002B4607 /* Optional+Extensions.swift */,
 				951F354A2C0F8D56002B4607 /* CollectionView+Extensions.swift */,
+				95A67A642C1850890056B08A /* UITextField+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -452,6 +460,7 @@
 		959FB6702BF7E24E0042C394 /* GitHubSearch-2 */ = {
 			isa = PBXGroup;
 			children = (
+				95A67A5B2C161F910056B08A /* GitHubSearch-2.entitlements */,
 				951F35602C10A614002B4607 /* GoogleService-Info.plist */,
 				951F353D2C0F769B002B4607 /* SupportingFiles */,
 				959FB6712BF7E24E0042C394 /* AppDelegate.swift */,
@@ -482,6 +491,32 @@
 				959FB6942BF7E24F0042C394 /* GitHubSearch_2UITestsLaunchTests.swift */,
 			);
 			path = "GitHubSearch-2UITests";
+			sourceTree = "<group>";
+		};
+		95A67A5A2C16150B0056B08A /* firebase */ = {
+			isa = PBXGroup;
+			children = (
+				95A67A5C2C1620C70056B08A /* FirebaseProvider.swift */,
+			);
+			path = firebase;
+			sourceTree = "<group>";
+		};
+		95A67A5E2C1623C70056B08A /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				95A67A602C1623F80056B08A /* AuthenticationService.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		95A67A5F2C1623DA0056B08A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				95CC38B62BFB9301005EA562 /* SearchServiceType.swift */,
+				95CC38B82BFB94AA005EA562 /* SearchService.swift */,
+				95CC38C32BFC7562005EA562 /* SearchRequest.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		95B101502BFFD12500F82CFA /* Errors */ = {
@@ -542,6 +577,7 @@
 		95CC38AE2BFB8A56005EA562 /* api */ = {
 			isa = PBXGroup;
 			children = (
+				95A67A5A2C16150B0056B08A /* firebase */,
 				95CC38BF2BFBDFE2005EA562 /* parser */,
 				95CC38B52BFB92D4005EA562 /* request */,
 				95CC38AF2BFB8A63005EA562 /* RequestProtocol.swift */,
@@ -555,9 +591,8 @@
 		95CC38B52BFB92D4005EA562 /* request */ = {
 			isa = PBXGroup;
 			children = (
-				95CC38B62BFB9301005EA562 /* SearchServiceType.swift */,
-				95CC38B82BFB94AA005EA562 /* SearchService.swift */,
-				95CC38C32BFC7562005EA562 /* SearchRequest.swift */,
+				95A67A5F2C1623DA0056B08A /* Search */,
+				95A67A5E2C1623C70056B08A /* Authentication */,
 			);
 			path = request;
 			sourceTree = "<group>";
@@ -794,6 +829,7 @@
 				951F35502C103D14002B4607 /* FooterStackView.swift in Sources */,
 				95B101532BFFD1A700F82CFA /* SortType.swift in Sources */,
 				951F35312C0F766D002B4607 /* Item.swift in Sources */,
+				95A67A652C1850890056B08A /* UITextField+Extensions.swift in Sources */,
 				951BFA182BF8C8880019B430 /* TabBarCoordinator.swift in Sources */,
 				95B101662C03188800F82CFA /* InjectedValues.swift in Sources */,
 				951F351F2C0F165B002B4607 /* FooterReposiotoryTextBuilder.swift in Sources */,
@@ -835,7 +871,9 @@
 				95CC38A72BFA3E8A005EA562 /* TabBarViewController.swift in Sources */,
 				95CC38B92BFB94AA005EA562 /* SearchService.swift in Sources */,
 				951F35392C0F7672002B4607 /* SearchResultResponseDTO.swift in Sources */,
+				95A67A5D2C1620C70056B08A /* FirebaseProvider.swift in Sources */,
 				951BFA212BF92ACB0019B430 /* RepositoryListScreenCoordinator.swift in Sources */,
+				95A67A612C1623F80056B08A /* AuthenticationService.swift in Sources */,
 				95CC38B22BFB8A77005EA562 /* RequestType.swift in Sources */,
 				951F35142C0E2759002B4607 /* GitHubLanguageColorsDTO.swift in Sources */,
 				95B101632C020D8100F82CFA /* RepositoryListViewModel.swift in Sources */,
@@ -1016,6 +1054,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "GitHubSearch-2/GitHubSearch-2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74925668M8;
@@ -1046,6 +1085,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "GitHubSearch-2/GitHubSearch-2.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 74925668M8;
