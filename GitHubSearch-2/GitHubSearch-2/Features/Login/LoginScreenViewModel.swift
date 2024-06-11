@@ -30,7 +30,7 @@ final class LoginScreenViewModel {
     }
 }
 
-extension LoginScreenViewModel: AuthenticationServiceDelegate {
+extension LoginScreenViewModel: AuthenticationServiceDelegate {    
     func authServiceUserDidLogIn() {
         DDLogInfo("Auth service did log in")
         delegate?.loginScreenViewModelDidTapSingInButton(self)

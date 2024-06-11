@@ -19,5 +19,6 @@ struct UIConstants {
         static let logoImageViewTitle = "beach.umbrella.fill"
         static let emailIconImageTitle = "at"
         static let passwordIconImageTitle = "lock.circle"
+        static let logoutIconImageTitle = "arrow.left.circle"
     }
 }
