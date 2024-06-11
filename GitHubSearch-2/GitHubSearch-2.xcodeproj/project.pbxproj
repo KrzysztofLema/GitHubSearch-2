@@ -72,6 +72,7 @@
 		959276B82C03BA9E00048438 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B72C03BA9E00048438 /* UIColor+Hex.swift */; };
 		959276BA2C03BAC100048438 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B92C03BAC100048438 /* Color.swift */; };
 		959B1DC62C199BF1006AF72C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959B1DC52C199BF1006AF72C /* UIConstants.swift */; };
+		959B1DC42C18D602006AF72C /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959B1DC32C18D602006AF72C /* SettingsOption.swift */; };
 		959FB6722BF7E24E0042C394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6712BF7E24E0042C394 /* AppDelegate.swift */; };
 		959FB6742BF7E24E0042C394 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6732BF7E24E0042C394 /* SceneDelegate.swift */; };
 		959FB6892BF7E24F0042C394 /* GitHubSearch_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6882BF7E24F0042C394 /* GitHubSearch_2Tests.swift */; };
@@ -80,6 +81,9 @@
 		95A67A5D2C1620C70056B08A /* FirebaseProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A5C2C1620C70056B08A /* FirebaseProvider.swift */; };
 		95A67A612C1623F80056B08A /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A602C1623F80056B08A /* AuthenticationService.swift */; };
 		95A67A652C1850890056B08A /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A642C1850890056B08A /* UITextField+Extensions.swift */; };
+		95A67A672C186A4C0056B08A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A662C186A4C0056B08A /* SettingsView.swift */; };
+		95A67A692C186A800056B08A /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A682C186A800056B08A /* SettingsViewModel.swift */; };
+		95A67A6C2C188ED80056B08A /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95A67A6B2C188ED80056B08A /* SettingsTableViewCell.swift */; };
 		95B101532BFFD1A700F82CFA /* SortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101522BFFD1A700F82CFA /* SortType.swift */; };
 		95B101552BFFD56B00F82CFA /* OrderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101542BFFD56B00F82CFA /* OrderType.swift */; };
 		95B101632C020D8100F82CFA /* RepositoryListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95B101622C020D8100F82CFA /* RepositoryListViewModel.swift */; };
@@ -163,6 +167,7 @@
 		959276B72C03BA9E00048438 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		959276B92C03BAC100048438 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		959B1DC52C199BF1006AF72C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		959B1DC32C18D602006AF72C /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
 		959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubSearch-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		959FB6712BF7E24E0042C394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959FB6732BF7E24E0042C394 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +180,9 @@
 		95A67A5C2C1620C70056B08A /* FirebaseProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseProvider.swift; sourceTree = "<group>"; };
 		95A67A602C1623F80056B08A /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		95A67A642C1850890056B08A /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		95A67A662C186A4C0056B08A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		95A67A682C186A800056B08A /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		95A67A6B2C188ED80056B08A /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		95B101522BFFD1A700F82CFA /* SortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortType.swift; sourceTree = "<group>"; };
 		95B101542BFFD56B00F82CFA /* OrderType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderType.swift; sourceTree = "<group>"; };
 		95B101622C020D8100F82CFA /* RepositoryListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListViewModel.swift; sourceTree = "<group>"; };
@@ -301,8 +309,11 @@
 		951BFA222BF92C040019B430 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				95A67A6A2C188EC40056B08A /* Cell */,
 				951BFA252BF92CA10019B430 /* Coordinator */,
 				951BFA262BF92CC70019B430 /* SettingsViewController.swift */,
+				95A67A662C186A4C0056B08A /* SettingsView.swift */,
+				95A67A682C186A800056B08A /* SettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -522,6 +533,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		95A67A6A2C188EC40056B08A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				95A67A6B2C188ED80056B08A /* SettingsTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		95B101502BFFD12500F82CFA /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -610,6 +629,7 @@
 				95B101522BFFD1A700F82CFA /* SortType.swift */,
 				951F35072C0D0689002B4607 /* ItemViewModel.swift */,
 				953CC6E92C12F5420006D172 /* Credentials.swift */,
+				959B1DC32C18D602006AF72C /* SettingsOption.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -845,6 +865,7 @@
 				95CC38BB2BFB9595005EA562 /* RequestManager.swift in Sources */,
 				959276BA2C03BAC100048438 /* Color.swift in Sources */,
 				951F35322C0F766D002B4607 /* SearchResult.swift in Sources */,
+				95A67A6C2C188ED80056B08A /* SettingsTableViewCell.swift in Sources */,
 				951F353A2C0F7672002B4607 /* ItemDTO.swift in Sources */,
 				95429BBD2C09166E00BCD09D /* ReuseIdentifier.swift in Sources */,
 				95CC38B72BFB9301005EA562 /* SearchServiceType.swift in Sources */,
@@ -854,6 +875,7 @@
 				951F35082C0D0689002B4607 /* ItemViewModel.swift in Sources */,
 				951F35472C0F7810002B4607 /* GitHubLanguageColors.swift in Sources */,
 				951BFA272BF92CC70019B430 /* SettingsViewController.swift in Sources */,
+				95A67A672C186A4C0056B08A /* SettingsView.swift in Sources */,
 				95CC38C92BFCA151005EA562 /* ServiceError.swift in Sources */,
 				951F351A2C0F0906002B4607 /* UIView+Extensions.swift in Sources */,
 				951BFA292BF92CE20019B430 /* RepositoryListViewController.swift in Sources */,
@@ -875,12 +897,14 @@
 				95CC38B92BFB94AA005EA562 /* SearchService.swift in Sources */,
 				951F35392C0F7672002B4607 /* SearchResultResponseDTO.swift in Sources */,
 				959B1DC62C199BF1006AF72C /* UIConstants.swift in Sources */,
+				95A67A692C186A800056B08A /* SettingsViewModel.swift in Sources */,
 				95A67A5D2C1620C70056B08A /* FirebaseProvider.swift in Sources */,
 				951BFA212BF92ACB0019B430 /* RepositoryListScreenCoordinator.swift in Sources */,
 				95A67A612C1623F80056B08A /* AuthenticationService.swift in Sources */,
 				95CC38B22BFB8A77005EA562 /* RequestType.swift in Sources */,
 				951F35142C0E2759002B4607 /* GitHubLanguageColorsDTO.swift in Sources */,
 				95B101632C020D8100F82CFA /* RepositoryListViewModel.swift in Sources */,
+				959B1DC42C18D602006AF72C /* SettingsOption.swift in Sources */,
 				959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */,
 				951F35332C0F766D002B4607 /* Owner.swift in Sources */,
 				951F350A2C0D0866002B4607 /* Int+Extensions.swift in Sources */,

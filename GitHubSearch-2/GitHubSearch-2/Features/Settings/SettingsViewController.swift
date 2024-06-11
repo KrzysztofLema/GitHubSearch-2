@@ -7,5 +7,20 @@
 
 import UIKit
 
-class SettingsViewController: BasicViewController {
+final class SettingsViewController: BasicViewController {
+    
+    private let viewModel: SettingsViewModel
+    
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
+        super.init()
+    }
+    
+    override func viewDidLoad() {
+        title = "Settings"
+    }
+    
+    override func loadView() {
+        view = SettingsView(viewModel: viewModel)
+    }
 }

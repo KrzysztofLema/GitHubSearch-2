@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol SettingsScreenCoordinatorDelegate: AnyObject {
+    func settingsScreenDidLogOut(_ settingsScreenCoordinator: SettingsScreenCoordinator)
+}
+
 final class SettingsScreenCoordinator: Coordinator {
+    
+    public weak var delegate: SettingsScreenCoordinatorDelegate?
     
     override func start() {
         let settingsViewController = makeSettingsViewController()
@@ -15,7 +21,16 @@ final class SettingsScreenCoordinator: Coordinator {
     }
     
     private func makeSettingsViewController() -> SettingsViewController {
-        let viewController = SettingsViewController()
+        let viewModel = SettingsViewModel()
+        viewModel.delegate = self
+        
+        let viewController = SettingsViewController(viewModel: viewModel)
         return viewController
+    }
+}
+
+extension SettingsScreenCoordinator: SettingsViewModelDelegate {
+    func settingsViewModelDidTapLogOut(_ settingsViewModel: SettingsViewModel) {
+        delegate?.settingsScreenDidLogOut(self)
     }
 }

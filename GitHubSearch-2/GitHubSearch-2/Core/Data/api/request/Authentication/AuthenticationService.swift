@@ -18,6 +18,7 @@ protocol AuthenticationServiceType {
     var delegate: AuthenticationServiceDelegate? { get set }
     
     func signIn(with email: String, password: String)
+    func logOut()
 }
 
 public class AuthenticationService: AuthenticationServiceType {
@@ -50,9 +51,18 @@ public class AuthenticationService: AuthenticationServiceType {
         }
     }
     
+    public func logOut() {
+        do {
+            try firebaseProvider.auth.signOut()
+        } catch {
+            DDLogInfo("Error while trying to sign out: \(error.localizedDescription)")
+            delegate?.authService(didOccurError: error)
+        }
+    }
+    
     private func registerAuthStateHandler() {
         if authStateHandler == nil {
-            authStateHandler = firebaseProvider.auth.addStateDidChangeListener { auth, user in
+            authStateHandler = firebaseProvider.auth.addStateDidChangeListener { [weak self] auth, user in
                 
             }
         }

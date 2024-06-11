@@ -9,6 +9,7 @@ import UIKit
 
 protocol TabBarCoordinatorDelegate: AnyObject {
     func repositoryListViewCoordinator(_ coordinator: TabBarCoordinator, didSelect item: Item)
+    func settingsScreenDidLogOut(_ coordinator: TabBarCoordinator)
 }
 
 final class TabBarCoordinator: Coordinator {
@@ -30,6 +31,8 @@ private extension TabBarCoordinator {
         let settingsScreenCoordinator = SettingsScreenCoordinator(navigationController: UINavigationController())
         settingsScreenCoordinator.start()
         
+        settingsScreenCoordinator.delegate = self
+        
         addChild(settingsScreenCoordinator)
         
         return settingsScreenCoordinator
@@ -50,5 +53,11 @@ private extension TabBarCoordinator {
 extension TabBarCoordinator: RepositoryListViewCoordinatorDelegate {
     func repositoryListViewCoordinator(_ coordinator: RepositoryListViewCoordinator, didSelect item: Item) {
         delegate?.repositoryListViewCoordinator(self, didSelect: item)
+    }
+}
+
+extension TabBarCoordinator: SettingsScreenCoordinatorDelegate {
+    func settingsScreenDidLogOut(_ settingsScreenCoordinator: SettingsScreenCoordinator) {
+        delegate?.settingsScreenDidLogOut(self)
     }
 }
