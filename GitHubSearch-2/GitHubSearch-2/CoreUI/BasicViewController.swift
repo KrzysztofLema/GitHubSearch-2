@@ -2,7 +2,7 @@
 //  BasicViewController.swift
 //  GitHubSearch-2
 //
-//  Created by Krzysztof Lema on 26/05/2024.
+//  Created by Krzysztof Lema on 12/06/2024.
 //
 
 import UIKit
