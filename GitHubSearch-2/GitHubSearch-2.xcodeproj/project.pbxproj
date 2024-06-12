@@ -71,6 +71,7 @@
 		959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B42C03A74800048438 /* ObservableSearchController.swift */; };
 		959276B82C03BA9E00048438 /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B72C03BA9E00048438 /* UIColor+Hex.swift */; };
 		959276BA2C03BAC100048438 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B92C03BAC100048438 /* Color.swift */; };
+		959B1DC62C199BF1006AF72C /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959B1DC52C199BF1006AF72C /* UIConstants.swift */; };
 		959FB6722BF7E24E0042C394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6712BF7E24E0042C394 /* AppDelegate.swift */; };
 		959FB6742BF7E24E0042C394 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6732BF7E24E0042C394 /* SceneDelegate.swift */; };
 		959FB6892BF7E24F0042C394 /* GitHubSearch_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6882BF7E24F0042C394 /* GitHubSearch_2Tests.swift */; };
@@ -161,6 +162,7 @@
 		959276B42C03A74800048438 /* ObservableSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSearchController.swift; sourceTree = "<group>"; };
 		959276B72C03BA9E00048438 /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		959276B92C03BAC100048438 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		959B1DC52C199BF1006AF72C /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubSearch-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		959FB6712BF7E24E0042C394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		959FB6732BF7E24E0042C394 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 			children = (
 				959276B72C03BA9E00048438 /* UIColor+Hex.swift */,
 				959276B92C03BAC100048438 /* Color.swift */,
+				959B1DC52C199BF1006AF72C /* UIConstants.swift */,
 			);
 			path = Style;
 			sourceTree = "<group>";
@@ -871,6 +874,7 @@
 				95CC38A72BFA3E8A005EA562 /* TabBarViewController.swift in Sources */,
 				95CC38B92BFB94AA005EA562 /* SearchService.swift in Sources */,
 				951F35392C0F7672002B4607 /* SearchResultResponseDTO.swift in Sources */,
+				959B1DC62C199BF1006AF72C /* UIConstants.swift in Sources */,
 				95A67A5D2C1620C70056B08A /* FirebaseProvider.swift in Sources */,
 				951BFA212BF92ACB0019B430 /* RepositoryListScreenCoordinator.swift in Sources */,
 				95A67A612C1623F80056B08A /* AuthenticationService.swift in Sources */,
