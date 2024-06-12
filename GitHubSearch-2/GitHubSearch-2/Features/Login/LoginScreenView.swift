@@ -64,7 +64,7 @@ final class LoginScreenView: BasicView {
         
         backgroundColor = Color.background
         
-        logoImageView.image = UIImage(systemName: "beach.umbrella.fill")
+        logoImageView.image = UIImage(systemName: UIConstants.Image.logoImageViewTitle)
         logoImageView.tintColor = Color.darkTextColor
         
         loginTitleLabel.text = "Log in"
@@ -76,7 +76,7 @@ final class LoginScreenView: BasicView {
         
         emailStackView.axis = .horizontal
         
-        emailIcon.image = UIImage(systemName: "at")
+        emailIcon.image = UIImage(systemName: UIConstants.Image.emailIconImageTitle)
         emailIcon.tintColor = Color.darkTextColor
         emailIcon.contentMode = .center
         
@@ -85,7 +85,7 @@ final class LoginScreenView: BasicView {
         
         passwordStackView.axis = .horizontal
         
-        passwordIcon.image = UIImage(systemName: "lock.circle")
+        passwordIcon.image = UIImage(systemName: UIConstants.Image.passwordIconImageTitle)
         passwordIcon.tintColor = Color.darkTextColor
         passwordIcon.contentMode = .center
         
@@ -96,7 +96,7 @@ final class LoginScreenView: BasicView {
         signInButton.setTitle("", for: .disabled)
         signInButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
         signInButton.backgroundColor = Color.darkButtonBackground
-        signInButton.layer.cornerRadius = 10
+        signInButton.layer.cornerRadius = UIConstants.defaultCornerRadius
         signInButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
@@ -105,27 +105,24 @@ final class LoginScreenView: BasicView {
         
         contentView.edgesToSuperview()
         
-        logoImageView.width(80)
-        logoImageView.height(80)
+        logoImageView.size(UIConstants.loginLogoImageSize)
         
-        emailIcon.width(30)
-        emailIcon.height(30)
+        emailIcon.size(UIConstants.defaultImageSize)
         
-        passwordIcon.height(30)
-        passwordIcon.width(30)
+        passwordIcon.size(UIConstants.defaultImageSize)
         
         logoImageView.centerXToSuperview()
         logoImageView.topToSuperview(offset: 50)
         
-        loginTitleLabel.topToBottom(of: logoImageView, offset: 20)
+        loginTitleLabel.topToBottom(of: logoImageView, offset: UIConstants.defaultLoginOffset)
         loginTitleLabel.centerX(to: logoImageView)
         
-        inputStackView.topToBottom(of: loginTitleLabel, offset: 20)
-        inputStackView.widthToSuperview(multiplier: 0.8)
+        inputStackView.topToBottom(of: loginTitleLabel, offset: UIConstants.defaultLoginOffset)
+        inputStackView.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
         inputStackView.centerXToSuperview()
         
-        signInButton.topToBottom(of: inputStackView, offset: 20)
-        signInButton.widthToSuperview(multiplier: 0.8)
+        signInButton.topToBottom(of: inputStackView, offset: UIConstants.defaultLoginOffset)
+        signInButton.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
         signInButton.centerXToSuperview()
     }
     

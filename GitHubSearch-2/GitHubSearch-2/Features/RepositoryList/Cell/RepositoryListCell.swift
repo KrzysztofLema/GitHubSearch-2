@@ -67,13 +67,13 @@ final class RepositoryListCell: UICollectionViewCell {
     
     private func setupSubviews() {
         containerView.clipsToBounds = true
-        containerView.layer.cornerRadius = 12
-        containerView.layer.borderColor = UIColor.lightGray.cgColor
+        containerView.layer.cornerRadius = UIConstants.defaultCornerRadius
+        containerView.layer.borderColor = Color.lightGrayBorderColor.cgColor
         containerView.layer.borderWidth = 1
         
         titleStackView.axis = .horizontal
         titleStackView.alignment = .center
-        titleStackView.spacing = 3
+        titleStackView.spacing = UIConstants.defaultSpacing
         
         imageView.image = UIImage(systemName: "star")
         imageView.contentMode = .scaleAspectFit

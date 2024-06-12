@@ -34,12 +34,12 @@ final class FooterStackView: UIStackView {
     override func layoutSubviews() {
         super.layoutSubviews()
         languageColorView.asCircle()
-        languageColorView.layer.borderColor = UIColor.black.cgColor
+        languageColorView.layer.borderColor = Color.blackBorderColor.cgColor
         languageColorView.layer.borderWidth = 0.5
     }
     
     private func setupView() {
-        spacing = 3
+        spacing = UIConstants.defaultSpacing
         
         languageColorView.widthToHeight(of: self)
         languageColorView.isHidden = true

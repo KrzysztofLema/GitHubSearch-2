@@ -13,4 +13,6 @@ public struct Color {
     public static let lightButtonBackground = UIColor(hexString:"#FFC8FB")
     public static let lightTrim = UIColor(hexString:"#FFEEF2")
     public static let darkTextColor = UIColor(hexString:"#595758")
+    public static let blackBorderColor = UIColor(hexString: "#000000")
+    public static let lightGrayBorderColor = UIColor(hexString: "#D3D3D3")
 }
