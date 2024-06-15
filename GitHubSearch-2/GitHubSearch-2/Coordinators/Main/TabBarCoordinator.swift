@@ -5,6 +5,7 @@
 //  Created by Krzysztof Lema on 18/05/2024.
 //
 
+import GHSModels
 import UIKit
 
 protocol TabBarCoordinatorDelegate: AnyObject {

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GHSModels
 
 final class SettingsTableViewCell: UITableViewCell {
     enum Constants {

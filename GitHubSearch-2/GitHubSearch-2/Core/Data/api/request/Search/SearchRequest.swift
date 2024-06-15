@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GHSModels
 
 enum SearchRequest: RequestProtocol {
     case search(keyword: String, sortType: SortType?, page: Int, orderType: OrderType?)

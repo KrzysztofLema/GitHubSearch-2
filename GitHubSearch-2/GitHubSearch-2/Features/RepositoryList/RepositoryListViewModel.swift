@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import GHSModels
 
 final class RepositoryListViewModel {
     @Injected(\.searchService) var searchService: SearchServiceType

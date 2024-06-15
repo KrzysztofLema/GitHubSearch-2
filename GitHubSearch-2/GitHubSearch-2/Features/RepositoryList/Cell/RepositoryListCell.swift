@@ -5,6 +5,7 @@
 //  Created by Krzysztof Lema on 30/05/2024.
 //
 
+import GHSModels
 import UIKit
 
 final class RepositoryListCell: UICollectionViewCell {

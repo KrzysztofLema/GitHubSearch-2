@@ -8,6 +8,7 @@
 import Combine
 import TinyConstraints
 import UIKit
+import GHSModels
 
 enum CellIdentifier: String {
     case cell

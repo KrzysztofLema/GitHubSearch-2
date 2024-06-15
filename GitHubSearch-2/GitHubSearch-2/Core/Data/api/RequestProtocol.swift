@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GHSModels
 
 protocol RequestProtocol {
     var path: String { get }

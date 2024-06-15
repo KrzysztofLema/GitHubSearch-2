@@ -7,6 +7,7 @@
 
 import CocoaLumberjackSwift
 import Foundation
+import GHSModels
 import UIKit
 
 protocol SettingsViewModelDelegate: AnyObject {
