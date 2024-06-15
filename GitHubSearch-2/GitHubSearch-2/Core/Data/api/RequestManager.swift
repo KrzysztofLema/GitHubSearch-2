@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import GHSModels
 
 protocol RequestManagerType {
     func perform<T: Decodable>(_ request: RequestProtocol, type: T.Type) throws -> AnyPublisher<T, NetworkError>

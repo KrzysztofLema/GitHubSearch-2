@@ -7,6 +7,8 @@
 
 import Combine
 import Foundation
+import GHSDtoModels
+import GHSModels
 
 final class SearchService: SearchServiceType {
     @Injected(\.requestManager) var requestManager: RequestManagerType

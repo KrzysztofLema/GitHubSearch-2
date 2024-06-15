@@ -6,6 +6,7 @@
 //
 
 import Combine
+import GHSModels
 import UIKit
 
 protocol RepositoryListViewControllerDelegate: AnyObject {

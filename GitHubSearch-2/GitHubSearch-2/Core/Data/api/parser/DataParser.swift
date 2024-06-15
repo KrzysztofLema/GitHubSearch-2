@@ -7,6 +7,7 @@
 
 import Combine
 import Foundation
+import GHSModels
 
 protocol DataParserType {
     func decode<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError>

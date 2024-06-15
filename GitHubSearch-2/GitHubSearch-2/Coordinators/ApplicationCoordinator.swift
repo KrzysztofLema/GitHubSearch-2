@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GHSModels
 
 class ApplicationCoordinator: Coordinator {
     @Injected(\.authenticationService) var authenticationService: AuthenticationServiceType

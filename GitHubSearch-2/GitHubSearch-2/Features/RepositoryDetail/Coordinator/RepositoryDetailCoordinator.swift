@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GHSModels
 import SafariServices
 
 protocol RepositoryDetailCoordinatorDelegate: AnyObject {

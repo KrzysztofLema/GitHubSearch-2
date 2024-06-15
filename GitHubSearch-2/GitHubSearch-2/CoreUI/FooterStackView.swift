@@ -5,6 +5,7 @@
 //  Created by Krzysztof Lema on 05/06/2024.
 //
 
+import GHSModels
 import UIKit
 
 final class FooterStackView: UIStackView {
