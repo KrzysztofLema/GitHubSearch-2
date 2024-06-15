@@ -5,6 +5,7 @@
 //  Created by Krzysztof Lema on 11/06/2024.
 //
 
+import GHSCoreUI
 import UIKit
 
 final class SettingsView: BasicView {
@@ -43,17 +44,17 @@ extension SettingsView: UITableViewDelegate {
         viewModel.models[indexPath.section].settingsOption[indexPath.row].didSelect?()
     }
 
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt _: IndexPath) -> CGFloat {
         tableView.estimatedRowHeight
     }
 }
 
 extension SettingsView: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in _: UITableView) -> Int {
         viewModel.models.count
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.models[section].settingsOption.count
     }
 

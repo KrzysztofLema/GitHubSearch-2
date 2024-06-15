@@ -31,7 +31,7 @@ public struct SettingsOption {
 
     public init(
         title: String,
-        titleTextColor: UIColor, 
+        titleTextColor: UIColor,
         icon: UIImage?,
         backgroundColor: UIColor,
         imageTintColor: UIColor?,

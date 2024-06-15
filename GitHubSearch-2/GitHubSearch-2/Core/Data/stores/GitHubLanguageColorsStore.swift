@@ -5,6 +5,7 @@
 //  Created by Krzysztof Lema on 03/06/2024.
 //
 
+import GHSDependecyInjection
 import GHSDtoModels
 import GHSModels
 import UIKit
