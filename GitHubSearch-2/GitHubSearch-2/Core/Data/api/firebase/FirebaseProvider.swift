@@ -5,22 +5,21 @@
 //  Created by Krzysztof Lema on 09/06/2024.
 //
 
-import Foundation
 import CocoaLumberjackSwift
 import FirebaseAuth
+import Foundation
 
 protocol FirebaseProviderType {
     var auth: Auth { get }
 }
 
 final class FirebaseProvider: FirebaseProviderType {
-    
     public var useEmulator: Bool {
         let value = UserDefaults.standard.bool(forKey: "useEmulator")
         DDLogInfo("Using the emulator: \(value == true ? "YES" : "NO")")
         return value
     }
-    
+
     public var auth: Auth {
         var environment = ""
         if useEmulator {
@@ -31,7 +30,7 @@ final class FirebaseProvider: FirebaseProviderType {
         } else {
             environment = "to use the Firebase backend"
         }
-        
+
         DDLogInfo("Configuring Firebase Auth \(environment).")
         return Auth.auth()
     }

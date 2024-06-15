@@ -9,10 +9,10 @@ struct OwnerDTO: Codable {
     let url: String?
     let htmlUrl: String?
     let followersUrl: String
-    let followingUrl:String?
+    let followingUrl: String?
     let gistsUrl: String?
     let starredUrl: String?
-    let subscriptionsUrl:String?
+    let subscriptionsUrl: String?
     let organizationsUrl: String?
     let reposUrl: String?
     let eventsUrl: String?
@@ -20,7 +20,7 @@ struct OwnerDTO: Codable {
     let type: String?
     let siteAdmin: Bool
     let starredAt: Bool?
-    
+
     enum CodingKeys: String, CodingKey {
         case name
         case email

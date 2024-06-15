@@ -33,7 +33,7 @@ struct ItemDTO: Codable {
     let eventsUrl: String?
     let assigneesUrl: String?
     let branchesUrl: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case id
         case nodeId = "node_id"
@@ -69,38 +69,39 @@ struct ItemDTO: Codable {
         case branchesUrl = "branches_url"
     }
 
-    init(id: Int?, 
-         nodeId: String?, 
-         name: String?,
-         fullName: String?,
-         owner: OwnerDTO?,
-         isPrivate: Bool?,
-         htmlUrl: String?,
-         description: String?,
-         fork: Bool?,
-         url: String?,
-         createdAt: Date?,
-         updatedAt: Date?,
-         pushedAt: Date?,
-         homepage: String?,
-         size: Int?,
-         stargazersCount: Int,
-         watchersCount: Int,
-         language: String?,
-         forksCount: Int?,
-         openIssuesCount: Int?,
-         masterBranch: String?,
-         defaultBranch: String?,
-         score: Int?,
-         forksUrl: String,
-         keysUrl: String,
-         collaboratorsUrl: String,
-         teamsUrl: String,
-         hooksUrl: String,
-         issueEventsUrl: String,
-         eventsUrl: String,
-         assigneesUrl: String,
-         branchesUrl: String
+    init(
+        id: Int?,
+        nodeId: String?,
+        name: String?,
+        fullName: String?,
+        owner: OwnerDTO?,
+        isPrivate: Bool?,
+        htmlUrl: String?,
+        description: String?,
+        fork: Bool?,
+        url: String?,
+        createdAt: Date?,
+        updatedAt: Date?,
+        pushedAt: Date?,
+        homepage: String?,
+        size: Int?,
+        stargazersCount: Int,
+        watchersCount: Int,
+        language: String?,
+        forksCount: Int?,
+        openIssuesCount: Int?,
+        masterBranch: String?,
+        defaultBranch: String?,
+        score: Int?,
+        forksUrl: String,
+        keysUrl: String,
+        collaboratorsUrl: String,
+        teamsUrl: String,
+        hooksUrl: String,
+        issueEventsUrl: String,
+        eventsUrl: String,
+        assigneesUrl: String,
+        branchesUrl: String
     ) {
         self.id = id
         self.nodeId = nodeId

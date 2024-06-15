@@ -16,23 +16,22 @@ protocol AuthenticationServiceDelegate: AnyObject {
 
 protocol AuthenticationServiceType {
     var delegate: AuthenticationServiceDelegate? { get set }
-    
+
     func signIn(with email: String, password: String)
     func logOut()
 }
 
 public class AuthenticationService: AuthenticationServiceType {
-    
     @Injected(\.firebaseProvider) private var firebaseProvider: FirebaseProviderType
-    
+
     weak var delegate: AuthenticationServiceDelegate?
-    
+
     private var authStateHandler: AuthStateDidChangeListenerHandle?
-    
+
     init() {
-       registerAuthStateHandler()
+        registerAuthStateHandler()
     }
-    
+
     public func signIn(with email: String, password: String) {
         firebaseProvider.auth.signIn(
             withEmail: email,
@@ -50,7 +49,7 @@ public class AuthenticationService: AuthenticationServiceType {
             }
         }
     }
-    
+
     public func logOut() {
         do {
             try firebaseProvider.auth.signOut()
@@ -59,11 +58,10 @@ public class AuthenticationService: AuthenticationServiceType {
             delegate?.authService(didOccurError: error)
         }
     }
-    
+
     private func registerAuthStateHandler() {
         if authStateHandler == nil {
-            authStateHandler = firebaseProvider.auth.addStateDidChangeListener { [weak self] auth, user in
-                
+            authStateHandler = firebaseProvider.auth.addStateDidChangeListener { [weak self] _, _ in
             }
         }
     }
