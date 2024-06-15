@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import GHSDependecyInjection
+import GHSLoginFeature
 import GHSModels
 
 class ApplicationCoordinator: Coordinator {

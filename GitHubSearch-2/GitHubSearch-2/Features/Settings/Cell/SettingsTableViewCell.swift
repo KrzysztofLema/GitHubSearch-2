@@ -5,8 +5,9 @@
 //  Created by Krzysztof Lema on 11/06/2024.
 //
 
-import UIKit
+import GHSCoreUI
 import GHSModels
+import UIKit
 
 final class SettingsTableViewCell: UITableViewCell {
     enum Constants {

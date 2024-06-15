@@ -7,6 +7,7 @@
 
 import CocoaLumberjackSwift
 import Foundation
+import GHSCoreUI
 import GHSModels
 import UIKit
 

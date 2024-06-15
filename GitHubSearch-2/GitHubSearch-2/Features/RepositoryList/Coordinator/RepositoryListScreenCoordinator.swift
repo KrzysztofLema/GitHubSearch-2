@@ -5,8 +5,8 @@
 //  Created by Krzysztof Lema on 18/05/2024.
 //
 
-import UIKit
 import GHSModels
+import UIKit
 
 protocol RepositoryListViewCoordinatorDelegate: AnyObject {
     func repositoryListViewCoordinator(_ coordinator: RepositoryListViewCoordinator, didSelect item: Item)
