@@ -9,7 +9,7 @@ import Foundation
 
 enum SortType: String {
     case stars, forks, helpWantedIssues, updated
-    
+
     var rawValue: String {
         switch self {
         case .stars: return "stars"

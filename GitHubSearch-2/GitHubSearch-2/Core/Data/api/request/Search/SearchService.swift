@@ -9,9 +9,8 @@ import Combine
 import Foundation
 
 final class SearchService: SearchServiceType {
-  
     @Injected(\.requestManager) var requestManager: RequestManagerType
-    
+
     func search(
         with keyword: String,
         page: Int,

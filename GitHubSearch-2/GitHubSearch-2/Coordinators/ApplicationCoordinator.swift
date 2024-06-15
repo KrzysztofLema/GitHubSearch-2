@@ -8,21 +8,22 @@
 import Foundation
 
 class ApplicationCoordinator: Coordinator {
-    
     @Injected(\.authenticationService) var authenticationService: AuthenticationServiceType
-    
+
     override func start() {
         startLoginScreenCoordinator()
     }
-    
-    func startChild(for deepLink: DeepLink,
-                    shouldReplaceRoot: Bool = false,
-                    completion: (() -> Void)? = nil,
-                    sourceCoordinator: Coordinator?) {
+
+    func startChild(
+        for deepLink: DeepLink,
+        shouldReplaceRoot: Bool = false,
+        completion: (() -> Void)? = nil,
+        sourceCoordinator: Coordinator?
+    ) {
         guard let sourceCoordinator else {
             return
         }
-        
+
         switch deepLink {
         case .home:
             startHomeCoordinator()
@@ -47,21 +48,21 @@ extension ApplicationCoordinator {
         startHomeCoordinator.start()
         addChild(startHomeCoordinator)
     }
-    
+
     func startRepositoryDetailCoordinator(item: Item) {
         let startRepositoryDetailCoordinator = RepositoryDetailCoordinator(navigationController: navigationController, item: item)
         startRepositoryDetailCoordinator.delegate = self
         startRepositoryDetailCoordinator.start()
-        
+
         addChild(startRepositoryDetailCoordinator)
     }
-    
+
     func startLoginScreenCoordinator() {
         let startLoginScreenCoordinator = LoginScreenCoordinator(navigationController: navigationController)
-        
+
         startLoginScreenCoordinator.delegate = self
         addChild(startLoginScreenCoordinator)
-        
+
         startLoginScreenCoordinator.start()
     }
 }
@@ -69,12 +70,12 @@ extension ApplicationCoordinator {
 extension ApplicationCoordinator: TabBarCoordinatorDelegate {
     func settingsScreenDidLogOut(_ coordinator: TabBarCoordinator) {
         removeAllChildCoordinators()
-        
+
         authenticationService.logOut()
-        
+
         startChild(for: .loginScreen, sourceCoordinator: self)
     }
-    
+
     func repositoryListViewCoordinator(_ coordinator: TabBarCoordinator, didSelect item: Item) {
         startChild(for: .repositoryDetail(item: item), sourceCoordinator: self)
     }

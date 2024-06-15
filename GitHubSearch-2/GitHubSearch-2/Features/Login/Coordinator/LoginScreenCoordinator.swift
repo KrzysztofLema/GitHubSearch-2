@@ -12,16 +12,15 @@ protocol LoginScreenCoordinatorDelegate: AnyObject {
 }
 
 final class LoginScreenCoordinator: Coordinator {
-    
     weak var delegate: LoginScreenCoordinatorDelegate?
-    
+
     override func start() {
         let viewController = makeLoginScreenViewController()
         viewController.delegate = self
-        
+
         navigationController.pushViewController(viewController, animated: true)
     }
-    
+
     private func makeLoginScreenViewController() -> LoginScreenViewController {
         let viewModel = LoginScreenViewModel()
         let viewController = LoginScreenViewController(viewModel: viewModel)

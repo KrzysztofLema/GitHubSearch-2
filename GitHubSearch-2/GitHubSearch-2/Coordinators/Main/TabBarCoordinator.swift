@@ -1,5 +1,5 @@
 //
-//  MainCoordinator.swift
+//  TabBarCoordinator.swift
 //  GitHubSearch-2
 //
 //  Created by Krzysztof Lema on 18/05/2024.
@@ -13,9 +13,8 @@ protocol TabBarCoordinatorDelegate: AnyObject {
 }
 
 final class TabBarCoordinator: Coordinator {
-    
     weak var delegate: TabBarCoordinatorDelegate?
-    
+
     override func start() {
         navigationController.navigationBar.isHidden = true
         let rootViewController = TabBarViewController(
@@ -30,22 +29,22 @@ private extension TabBarCoordinator {
     func makeSettingsScreenViewCoordinator() -> SettingsScreenCoordinator {
         let settingsScreenCoordinator = SettingsScreenCoordinator(navigationController: UINavigationController())
         settingsScreenCoordinator.start()
-        
+
         settingsScreenCoordinator.delegate = self
-        
+
         addChild(settingsScreenCoordinator)
-        
+
         return settingsScreenCoordinator
     }
-    
+
     func makeRepositoryListViewCoordinator() -> RepositoryListViewCoordinator {
         let repositoryListViewCoordinator = RepositoryListViewCoordinator(navigationController: UINavigationController())
         repositoryListViewCoordinator.start()
-        
+
         repositoryListViewCoordinator.delegate = self
-        
+
         addChild(repositoryListViewCoordinator)
-        
+
         return repositoryListViewCoordinator
     }
 }

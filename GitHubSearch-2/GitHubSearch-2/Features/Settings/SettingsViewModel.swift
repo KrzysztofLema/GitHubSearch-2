@@ -14,27 +14,26 @@ protocol SettingsViewModelDelegate: AnyObject {
 }
 
 final class SettingsViewModel {
-    
     var models: [SettingsSection] = []
-    
+
     weak var delegate: SettingsViewModelDelegate?
-    
+
     init() {
         configure()
     }
-    
+
     func logOut() {
         DDLogInfo("User tap log out button")
         delegate?.settingsViewModelDidTapLogOut(self)
     }
-    
+
     func configure() {
         models = [
             SettingsSection(
                 settingsOption: [
-                    createLogOutSettingsOption()
+                    createLogOutSettingsOption(),
                 ]
-            )
+            ),
         ]
     }
 }
@@ -46,8 +45,9 @@ private extension SettingsViewModel {
             titleTextColor: .white,
             icon: UIImage(systemName: UIConstants.Image.logoutIconImageTitle),
             backgroundColor: Color.redButtonBackground,
-            imageTintColor: Color.whiteTextColor) {
-                self.logOut()
-            }
+            imageTintColor: Color.whiteTextColor
+        ) {
+            self.logOut()
+        }
     }
 }

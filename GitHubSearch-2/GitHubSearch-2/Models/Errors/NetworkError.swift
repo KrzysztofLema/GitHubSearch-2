@@ -15,7 +15,7 @@ enum NetworkError: Error {
     case dataParsingFailed
     case responseMissing
     case requestError
-    
+
     var description: String {
         switch self {
         case .invalidServerResponse:
@@ -29,7 +29,7 @@ enum NetworkError: Error {
         case .dataParsingFailed:
             return "Data parsing was incorrect."
         case .responseMissing:
-            return "There is response missing." 
+            return "There is response missing."
         case .requestError:
             return "Request Error"
         }

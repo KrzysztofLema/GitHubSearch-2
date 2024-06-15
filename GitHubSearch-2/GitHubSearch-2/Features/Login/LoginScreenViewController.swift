@@ -12,21 +12,20 @@ protocol LoginScreenViewControllerDelegate: AnyObject {
 }
 
 final class LoginScreenViewController: BasicViewController {
-    
     weak var delegate: LoginScreenViewControllerDelegate?
-    
+
     private let viewModel: LoginScreenViewModel
-    
+
     init(viewModel: LoginScreenViewModel) {
         self.viewModel = viewModel
         super.init()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.delegate = self
     }
-    
+
     override func loadView() {
         view = LoginScreenView(viewModel: viewModel)
     }

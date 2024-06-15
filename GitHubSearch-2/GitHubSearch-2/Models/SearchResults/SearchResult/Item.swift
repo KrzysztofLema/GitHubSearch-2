@@ -8,7 +8,7 @@
 import Foundation
 
 struct Item: Equatable, Hashable {
-    private let uuid: UUID = UUID()
+    private let uuid: UUID = .init()
 
     var id: Int?
     var name: String?
@@ -20,12 +20,12 @@ struct Item: Equatable, Hashable {
     var forksCount: Int
     var updatedAt: Date
     var stargazersCount: Int
-    
+
     public func hash(into hasher: inout Hasher) {
         hasher.combine(uuid)
     }
-    
-    public static func == (lhs: Item, rhs: Item) -> Bool {
+
+    public static func ==(lhs: Item, rhs: Item) -> Bool {
         lhs.uuid == rhs.uuid
     }
 }

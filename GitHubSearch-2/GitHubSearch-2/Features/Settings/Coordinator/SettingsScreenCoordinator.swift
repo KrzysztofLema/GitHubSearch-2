@@ -1,5 +1,5 @@
 //
-//  SettingsTabScreenCoordinator.swift
+//  SettingsScreenCoordinator.swift
 //  GitHubSearch-2
 //
 //  Created by Krzysztof Lema on 18/05/2024.
@@ -12,18 +12,17 @@ protocol SettingsScreenCoordinatorDelegate: AnyObject {
 }
 
 final class SettingsScreenCoordinator: Coordinator {
-    
     public weak var delegate: SettingsScreenCoordinatorDelegate?
-    
+
     override func start() {
         let settingsViewController = makeSettingsViewController()
         navigationController.setViewControllers([settingsViewController], animated: true)
     }
-    
+
     private func makeSettingsViewController() -> SettingsViewController {
         let viewModel = SettingsViewModel()
         viewModel.delegate = self
-        
+
         let viewController = SettingsViewController(viewModel: viewModel)
         return viewController
     }

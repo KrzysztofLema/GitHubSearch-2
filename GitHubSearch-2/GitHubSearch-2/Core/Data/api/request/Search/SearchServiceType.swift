@@ -9,5 +9,5 @@ import Combine
 import Foundation
 
 protocol SearchServiceType {
-    func search(with keyword: String,page: Int, sortType: SortType?, orderType: OrderType?) throws -> AnyPublisher<SearchResult, ServiceError>
+    func search(with keyword: String, page: Int, sortType: SortType?, orderType: OrderType?) throws -> AnyPublisher<SearchResult, ServiceError>
 }

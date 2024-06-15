@@ -13,25 +13,24 @@ protocol RepositoryDetailCoordinatorDelegate: AnyObject {
 }
 
 final class RepositoryDetailCoordinator: Coordinator {
-    
     public weak var delegate: RepositoryDetailCoordinatorDelegate?
-    
+
     private let item: Item
-    
+
     init(navigationController: UINavigationController, item: Item) {
         self.item = item
-        
+
         super.init(navigationController: navigationController)
     }
-    
+
     override func start() {
         guard let htmlUrl = item.htmlUrl else {
             return
         }
-        
+
         let viewController = SFSafariViewController(url: htmlUrl)
         viewController.delegate = self
-        
+
         navigationController.present(viewController, animated: true)
     }
 }

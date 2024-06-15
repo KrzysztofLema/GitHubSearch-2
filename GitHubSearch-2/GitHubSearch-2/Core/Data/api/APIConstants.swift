@@ -9,13 +9,13 @@ import Foundation
 
 enum APIConstants {
     static let apiQueueLabel = "api"
-    
+
     static let host = "api.github.com"
     static let scheme = "https"
     static let searchRepositoryPath = "/search/repositories"
-    
+
     static let pageSize = 15
-    
+
     static let searchRepositoryParamKey = "q"
     static let pageNumberKey = "page"
     static let sortTypeKey = "sort"

@@ -1,5 +1,5 @@
 //
-//  JsonParser.swift
+//  DataParser.swift
 //  GitHubSearch-2
 //
 //  Created by Krzysztof Lema on 20/05/2024.
@@ -13,25 +13,24 @@ protocol DataParserType {
 }
 
 final class DataParser: DataParserType {
-    
     private var jsonDecoder: JSONDecoder
-    
+
     init(jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.jsonDecoder = jsonDecoder
         self.jsonDecoder.dateDecodingStrategy = .iso8601
     }
-    
+
     func decode<T: Decodable>(data: Data) -> AnyPublisher<T, NetworkError> {
         do {
             return Just(try jsonDecoder.decode(T.self, from: data))
                 .setFailureType(to: NetworkError.self)
                 .eraseToAnyPublisher()
-        } catch let error {
+        } catch {
             #if DEBUG
             print("Decode error = \(error)")
             #endif
             return Fail(error: NetworkError.dataParsingFailed)
-                    .eraseToAnyPublisher()
+                .eraseToAnyPublisher()
         }
     }
 }

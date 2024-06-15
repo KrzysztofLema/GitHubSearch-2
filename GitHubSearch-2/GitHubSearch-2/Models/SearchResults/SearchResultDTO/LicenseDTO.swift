@@ -7,7 +7,7 @@ struct LicenseDTO: Codable {
     let spdxId: String
     let nodeId: String?
     let htmlUrl: String?
-    
+
     enum CodingKeys: String, CodingKey {
         case key
         case name
