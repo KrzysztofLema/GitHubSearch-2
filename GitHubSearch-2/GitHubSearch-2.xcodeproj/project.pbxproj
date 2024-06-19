@@ -51,6 +51,7 @@
 		95429BBA2C090AB900BCD09D /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BB92C090AB900BCD09D /* RepositoryListCell.swift */; };
 		95429BBD2C09166E00BCD09D /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */; };
 		955945CC2C234A5A008F50EB /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 955945CB2C234A5A008F50EB /* Inject */; };
+		9577EF802C23541000F6AC87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9577EF7F2C23541000F6AC87 /* ComposableArchitecture */; };
 		957A10DD2C1E20B9002440E3 /* GHSModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DC2C1E20B9002440E3 /* GHSModels */; };
 		957A10DF2C1E2310002440E3 /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DE2C1E2310002440E3 /* GHSDtoModels */; settings = {ATTRIBUTES = (Required, ); }; };
 		9587DDDF2C1A1FE800258602 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9587DDDE2C1A1FE800258602 /* GoogleService-Info.plist */; };
@@ -120,6 +121,7 @@
 		952249432C1C19DD00526DE6 /* UIStackView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extensions.swift"; sourceTree = "<group>"; };
 		95429BB92C090AB900BCD09D /* RepositoryListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListCell.swift; sourceTree = "<group>"; };
 		95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifier.swift; sourceTree = "<group>"; };
+		9577EF822C235D6A00F6AC87 /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		957A10DA2C1E1C86002440E3 /* GHSModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSModels; sourceTree = "<group>"; };
 		957A10DB2C1E1DA3002440E3 /* GHSDtoModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSDtoModels; sourceTree = "<group>"; };
 		957A10E02C1E2329002440E3 /* GHSCoreUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSCoreUI; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				951F35922C10A75C002B4607 /* FirebasePerformance in Frameworks */,
 				951F356E2C10A75C002B4607 /* FirebaseAppCheck in Frameworks */,
 				951F35682C10A75C002B4607 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				9577EF802C23541000F6AC87 /* ComposableArchitecture in Frameworks */,
 				951F35962C10A75C002B4607 /* FirebaseRemoteConfigSwift in Frameworks */,
 				957A10DD2C1E20B9002440E3 /* GHSModels in Frameworks */,
 				951F356A2C10A75C002B4607 /* FirebaseAnalyticsSwift in Frameworks */,
@@ -337,6 +340,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		9577EF812C235D2A00F6AC87 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				9577EF822C235D6A00F6AC87 /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
+			sourceTree = "<group>";
+		};
 		957A10D92C1E1C0E002440E3 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,6 +364,7 @@
 		959FB6652BF7E24E0042C394 = {
 			isa = PBXGroup;
 			children = (
+				9577EF812C235D2A00F6AC87 /* ci_scripts */,
 				957A10D92C1E1C0E002440E3 /* Packages */,
 				959FB6702BF7E24E0042C394 /* GitHubSearch-2 */,
 				959FB6872BF7E24F0042C394 /* GitHubSearch-2Tests */,
@@ -559,6 +571,7 @@
 				957A10DE2C1E2310002440E3 /* GHSDtoModels */,
 				95E310352C2248BF000829EA /* GHSLoginFeature */,
 				955945CB2C234A5A008F50EB /* Inject */,
+				9577EF7F2C23541000F6AC87 /* ComposableArchitecture */,
 			);
 			productName = "GitHubSearch-2";
 			productReference = 959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */;
@@ -637,6 +650,7 @@
 				95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 				951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */,
+				955945CD2C2353CF008F50EB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -1110,6 +1124,14 @@
 				minimumVersion = 1.5.0;
 			};
 		};
+		955945CD2C2353CF008F50EB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.11.1;
+			};
+		};
 		95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
@@ -1248,6 +1270,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */;
 			productName = Inject;
+		};
+		9577EF7F2C23541000F6AC87 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 955945CD2C2353CF008F50EB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		957A10DC2C1E20B9002440E3 /* GHSModels */ = {
 			isa = XCSwiftPackageProductDependency;
