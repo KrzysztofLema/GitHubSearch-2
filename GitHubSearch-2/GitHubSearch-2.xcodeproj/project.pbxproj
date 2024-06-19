@@ -50,6 +50,7 @@
 		952249442C1C19DD00526DE6 /* UIStackView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 952249432C1C19DD00526DE6 /* UIStackView+Extensions.swift */; };
 		95429BBA2C090AB900BCD09D /* RepositoryListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BB92C090AB900BCD09D /* RepositoryListCell.swift */; };
 		95429BBD2C09166E00BCD09D /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */; };
+		955945CC2C234A5A008F50EB /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 955945CB2C234A5A008F50EB /* Inject */; };
 		957A10DD2C1E20B9002440E3 /* GHSModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DC2C1E20B9002440E3 /* GHSModels */; };
 		957A10DF2C1E2310002440E3 /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DE2C1E2310002440E3 /* GHSDtoModels */; settings = {ATTRIBUTES = (Required, ); }; };
 		9587DDDF2C1A1FE800258602 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9587DDDE2C1A1FE800258602 /* GoogleService-Info.plist */; };
@@ -161,6 +162,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				955945CC2C234A5A008F50EB /* Inject in Frameworks */,
 				95CC38AB2BFB5FC0005EA562 /* CocoaLumberjackSwift in Frameworks */,
 				951F35822C10A75C002B4607 /* FirebaseFirestoreSwift in Frameworks */,
 				951F356C2C10A75C002B4607 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
@@ -556,6 +558,7 @@
 				957A10DC2C1E20B9002440E3 /* GHSModels */,
 				957A10DE2C1E2310002440E3 /* GHSDtoModels */,
 				95E310352C2248BF000829EA /* GHSLoginFeature */,
+				955945CB2C234A5A008F50EB /* Inject */,
 			);
 			productName = "GitHubSearch-2";
 			productReference = 959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */;
@@ -633,6 +636,7 @@
 				95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */,
 				95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 				951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -926,6 +930,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"-Xlinker",
+					"-interposable",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.krzysztoflema.GitHubSearch-2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1094,6 +1102,14 @@
 				minimumVersion = 10.27.0;
 			};
 		};
+		955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/krzysztofzablocki/Inject.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.0;
+			};
+		};
 		95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/roberthein/TinyConstraints.git";
@@ -1227,6 +1243,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
+		};
+		955945CB2C234A5A008F50EB /* Inject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */;
+			productName = Inject;
 		};
 		957A10DC2C1E20B9002440E3 /* GHSModels */ = {
 			isa = XCSwiftPackageProductDependency;

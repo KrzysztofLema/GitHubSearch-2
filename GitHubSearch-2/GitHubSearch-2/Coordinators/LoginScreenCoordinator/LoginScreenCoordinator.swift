@@ -7,6 +7,7 @@
 
 import Foundation
 import GHSLoginFeature
+import Inject
 
 protocol LoginScreenCoordinatorDelegate: AnyObject {
     func loginScreenCoordinatorSignInTapped(_ loginScreenCoordinator: LoginScreenCoordinator)
@@ -16,7 +17,7 @@ final class LoginScreenCoordinator: Coordinator {
     weak var delegate: LoginScreenCoordinatorDelegate?
 
     override func start() {
-        let viewController = makeLoginScreenViewController()
+        let viewController = Inject.ViewControllerHost(self.makeLoginScreenViewController())
         viewController.delegate = self
 
         navigationController.pushViewController(viewController, animated: true)
@@ -24,6 +25,7 @@ final class LoginScreenCoordinator: Coordinator {
 
     private func makeLoginScreenViewController() -> LoginScreenViewController {
         let viewModel = LoginScreenViewModel()
+        
         let viewController = LoginScreenViewController(viewModel: viewModel)
         return viewController
     }
