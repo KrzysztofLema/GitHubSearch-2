@@ -14,6 +14,7 @@ let package = Package(
 
     ],
     dependencies: [
+        .package(url: "https://github.com/krzysztofzablocki/Inject.git",from: "1.2.4"),
         .package(name: "GHSDependecyInjection", path: "../Packages/GHSDependecyInjection"),
         .package(name: "GHSModels", path: "../Packages/GHSModels"),
         .package(name: "GHSExtensions", path: "../Packages/GHSExtensions"),
