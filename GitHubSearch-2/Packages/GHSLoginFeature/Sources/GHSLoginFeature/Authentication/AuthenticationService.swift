@@ -19,8 +19,8 @@ public protocol AuthenticationServiceType {
     var delegate: AuthenticationServiceDelegate? { get set }
 
     func signIn(with email: String, password: String)
-    func logOut()
-    func addUser(with email: String, password: String)
+    func signOut()
+    func createUser(with email: String, password: String)
 }
 
 public class AuthenticationService: AuthenticationServiceType {
@@ -51,7 +51,7 @@ public class AuthenticationService: AuthenticationServiceType {
         }
     }
 
-    public func logOut() {
+    public func signOut() {
         do {
             try firebaseProvider.auth.signOut()
         } catch {
@@ -60,7 +60,7 @@ public class AuthenticationService: AuthenticationServiceType {
         }
     }
 
-    public func addUser(with email: String, password: String) {
+    public func createUser(with email: String, password: String) {
         firebaseProvider.auth.createUser(withEmail: email, password: password) { [weak self] result, error in
             guard let self else {
                 return

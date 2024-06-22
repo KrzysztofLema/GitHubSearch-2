@@ -74,7 +74,7 @@ extension ApplicationCoordinator: TabBarCoordinatorDelegate {
     func settingsScreenDidLogOut(_ coordinator: TabBarCoordinator) {
         removeAllChildCoordinators()
 
-        authenticationService.logOut()
+        authenticationService.signOut()
 
         startChild(for: .loginScreen, sourceCoordinator: self)
     }

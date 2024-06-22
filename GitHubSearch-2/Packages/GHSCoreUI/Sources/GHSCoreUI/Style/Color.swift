@@ -19,4 +19,19 @@ public enum Color {
     public static let whiteTextColor = UIColor(hexString: "#ffffff")
     public static let greenValidationTextColor = UIColor(hexString: "#00FF00")
     public static let redValidationTextColor = UIColor(hexString: "#FF0000")
+
+    public enum Authentication {
+        public static let googleButtonBorderColor = UIColor(hexString: "#888888")
+        public static let googleButtonBackgroundColor = UIColor(hexString: "#ffffff")
+        public static let googleButtonBaseBackgroundColor = UIColor(hexString: "#808080")
+
+        public static let appleButtonBackgroundColor = UIColor(hexString: "#000000")
+        public static let appleButtonBaseBackgroundColor = UIColor(hexString: "#ffffff")
+
+        public static let facebookButtonBaseBackgroundColor = UIColor(hexString: "#ffffff")
+        public static let facebookButtonBackgroundColor = UIColor(hexString: "#3b5998")
+
+        public static let emailButtonBackgroundColor = UIColor(hexString: "#E32227")
+        public static let emailButtonBaseBackgroundColor = UIColor(hexString: "#595758")
+    }
 }

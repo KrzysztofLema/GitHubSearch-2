@@ -5,34 +5,37 @@
 //  Created by Krzysztof Lema on 05/06/2024.
 //
 
-// import CocoaLumberjackSwift
 import Combine
 import GHSCoreUI
 import TinyConstraints
 import UIKit
 
 protocol LoginScreenViewDelegate: AnyObject {
-    func loginScreenViewSignInButtonTapped(_ loginViewModel: LoginScreenView)
+    func loginScreenViewSignInButtonTapped(_ loginScreenView: LoginScreenView)
+    func loginScreenViewSignUpButtonTapped(_ loginScreenView: LoginScreenView)
 }
 
 final class LoginScreenView: BasicView {
     weak var delegate: LoginScreenViewDelegate?
 
-    private let viewModel: LoginScreenViewModel
-
+    private let addAccountStackView = UIStackView()
+    private let addAccountLabel = UILabel()
+    private let addAccountButton = UIButton()
+    private let authButtonsViewModels: [AuthenticationButtonViewModel]
+    private let additionalAuthenticationButtonStackView = UIStackView()
     private let contentView = UIView()
     private let logoImageView = UIImageView()
     private let loginTitleLabel = UILabel()
     private let loginInputView: UIView
-    private let addAccountStackView = UIStackView()
-    private let addAccountLabel = UILabel()
-    private let addAccountButton = UIButton()
+    private let signInButtonStackView = UIStackView()
+    private let viewModel: LoginScreenViewModel
 
     private var cancellables = Set<AnyCancellable>()
 
-    init(viewModel: LoginScreenViewModel, loginInputView: UIView) {
+    init(viewModel: LoginScreenViewModel, loginInputView: UIView, authButtonsViewModels: [AuthenticationButtonViewModel]) {
         self.viewModel = viewModel
         self.loginInputView = loginInputView
+        self.authButtonsViewModels = authButtonsViewModels
         super.init()
     }
 
@@ -44,13 +47,17 @@ final class LoginScreenView: BasicView {
             logoImageView,
             loginTitleLabel,
             loginInputView,
+            signInButtonStackView,
             addAccountStackView,
+            additionalAuthenticationButtonStackView,
         ].forEach(contentView.addSubview(_:))
 
         [
             addAccountLabel,
             addAccountButton,
         ].forEach(addAccountStackView.addArrangedSubview(_:))
+
+        addButtonsToStackView(viewModels: authButtonsViewModels)
     }
 
     override func setupSubviews() {
@@ -81,6 +88,10 @@ final class LoginScreenView: BasicView {
         addAccountButton.titleLabel?.textAlignment = .left
         addAccountButton.underline()
         addAccountButton.addTarget(viewModel, action: #selector(viewModel.addAccountButtonTapped), for: .touchUpInside)
+
+        additionalAuthenticationButtonStackView.axis = .vertical
+        additionalAuthenticationButtonStackView.spacing = UIConstants.defaultSpacing
+        additionalAuthenticationButtonStackView.distribution = .fillEqually
     }
 
     override func setupConstraints() {
@@ -100,7 +111,46 @@ final class LoginScreenView: BasicView {
         loginInputView.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
         loginInputView.centerXToSuperview()
 
+        signInButtonStackView.topToBottom(of: loginInputView, offset: UIConstants.defaultLoginOffset)
+        signInButtonStackView.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
+        signInButtonStackView.centerXToSuperview()
+
         addAccountStackView.centerXToSuperview()
-        addAccountStackView.topToBottom(of: loginInputView, offset: UIConstants.defaultLoginOffset)
+        addAccountStackView.topToBottom(of: signInButtonStackView, offset: UIConstants.defaultLoginOffset)
+
+        additionalAuthenticationButtonStackView.topToBottom(of: addAccountStackView, offset: UIConstants.defaultLoginOffset)
+        additionalAuthenticationButtonStackView.centerXToSuperview()
+        additionalAuthenticationButtonStackView.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
+    }
+
+    private func addButtonsToStackView(viewModels: [AuthenticationButtonViewModel]) {
+        viewModels
+            .map(createAuthenticationButton(for:))
+            .forEach {
+                if $0.viewModel.type == .email {
+                    signInButtonStackView.addArrangedSubview($0)
+                } else {
+                    additionalAuthenticationButtonStackView.addArrangedSubview($0)
+                }
+            }
+    }
+
+    private func createAuthenticationButton(for authenticationViewModel: AuthenticationButtonViewModel) -> AuthenticationButton {
+        authenticationViewModel.delegate = self
+
+        let authenticationButton = AuthenticationButton(authenticationViewModel: authenticationViewModel)
+
+        authenticationButton.addTarget(viewModel, action: #selector(viewModel.didTapAuthenticationButton), for: .touchUpInside)
+        return authenticationButton
+    }
+}
+
+extension LoginScreenView: AuthenticationButtonViewModelDelegate {
+    func authenticationButtonViewModelDidTapEmailLogin(_ viewModel: AuthenticationButtonViewModel) {
+        delegate?.loginScreenViewSignInButtonTapped(self)
+    }
+
+    func authenticationButtonViewModelDidTapEmailAddUser(_ viewModel: AuthenticationButtonViewModel) {
+        delegate?.loginScreenViewSignUpButtonTapped(self)
     }
 }
