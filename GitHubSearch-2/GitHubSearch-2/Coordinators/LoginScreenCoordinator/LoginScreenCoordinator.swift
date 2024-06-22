@@ -25,7 +25,7 @@ final class LoginScreenCoordinator: Coordinator {
 
     private func makeLoginScreenViewController() -> LoginScreenViewController {
         let viewModel = LoginScreenViewModel()
-        
+
         let viewController = LoginScreenViewController(viewModel: viewModel)
         return viewController
     }

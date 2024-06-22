@@ -34,14 +34,12 @@ final class AuthenticationInputView: BasicView {
     private let confirmPasswordIcon = UIImageView()
     private let confirmPasswordTextField = AuthenticationTextField()
     private let validationLabel = UILabel()
-    private let signInButton = UIButton()
 
     override func addSubviews() {
         super.addSubviews()
 
         [
             inputStackView,
-            signInButton,
         ].forEach(addSubview(_:))
 
         [
@@ -93,12 +91,6 @@ final class AuthenticationInputView: BasicView {
 
         confirmPasswordTextField.setupView(placeholderText: "Confirm password")
         confirmPasswordTextField.isSecureTextEntry = true
-
-        signInButton.setTitle("", for: .disabled)
-        signInButton.titleLabel?.font = .boldSystemFont(ofSize: 18)
-        signInButton.backgroundColor = Color.darkButtonBackground
-        signInButton.layer.cornerRadius = UIConstants.defaultCornerRadius
-        signInButton.addTarget(viewModel, action: #selector(viewModel.authenticationButtonTapped), for: .touchUpInside)
     }
 
     override func setupConstraints() {
@@ -108,14 +100,7 @@ final class AuthenticationInputView: BasicView {
         passwordIcon.size(UIConstants.defaultImageSize)
         confirmPasswordIcon.size(UIConstants.defaultImageSize)
 
-        inputStackView.topToSuperview()
-        inputStackView.centerXToSuperview()
-        inputStackView.widthToSuperview()
-
-        signInButton.topToBottom(of: inputStackView, offset: UIConstants.defaultLoginOffset)
-        signInButton.widthToSuperview(multiplier: UIConstants.defaultWidthMultiplier)
-        signInButton.centerXToSuperview()
-        signInButton.bottomToSuperview()
+        inputStackView.edgesToSuperview()
     }
 }
 
@@ -160,14 +145,12 @@ private extension AuthenticationInputView {
             UIView.animate(withDuration: 0.15) {
                 self.validationLabel.isHidden = true
                 self.confirmPasswordStackView.isHidden = true
-                self.signInButton.setTitle("Sign In", for: .normal)
             }
         case .addUser:
             UIView.animate(withDuration: 0.15) {
                 self.validationLabel.isHidden = false
                 self.validationLabel.text = ""
                 self.confirmPasswordStackView.isHidden = false
-                self.signInButton.setTitle("Sign Up", for: .normal)
             }
         }
 

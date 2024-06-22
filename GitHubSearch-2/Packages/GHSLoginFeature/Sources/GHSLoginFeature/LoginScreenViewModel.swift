@@ -20,5 +20,12 @@ public final class LoginScreenViewModel {
         delegate?.loginScreenViewModelDidTapAddAccountButton(self)
     }
 
+    @objc func didTapAuthenticationButton(_ button: AuthenticationButton) {
+        guard let type = button.type else {
+            return
+        }
+        button.viewModel.buttonDidTap?(type)
+    }
+
     public init() {}
 }

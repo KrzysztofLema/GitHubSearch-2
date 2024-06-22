@@ -237,7 +237,6 @@
 		951BFA192BF920C00019B430 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				951F359D2C10E029002B4607 /* Login */,
 				95EE226E2C05165B001AD6B8 /* RepositoryDetail */,
 				951BFA222BF92C040019B430 /* Settings */,
 				951BFA1E2BF929A10019B430 /* RepositoryList */,
@@ -310,13 +309,6 @@
 				951F35402C0F769B002B4607 /* LaunchScreen.storyboard */,
 			);
 			path = SupportingFiles;
-			sourceTree = "<group>";
-		};
-		951F359D2C10E029002B4607 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		95429BB82C090AA400BCD09D /* Cell */ = {
