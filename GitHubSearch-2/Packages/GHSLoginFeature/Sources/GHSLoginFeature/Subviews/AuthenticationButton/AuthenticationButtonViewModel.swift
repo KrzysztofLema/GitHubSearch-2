@@ -6,6 +6,7 @@ import UIKit
 protocol AuthenticationButtonViewModelDelegate: AnyObject {
     func authenticationButtonViewModelDidTapEmailLogin(_ viewModel: AuthenticationButtonViewModel)
     func authenticationButtonViewModelDidTapEmailAddUser(_ viewModel: AuthenticationButtonViewModel)
+    func authenticationButtonViewModelDidTapAppleLogin(_ viewModel: AuthenticationButtonViewModel)
 }
 
 final class AuthenticationButtonViewModel {
@@ -27,14 +28,13 @@ final class AuthenticationButtonViewModel {
     }
 
     init(
-        title: String,
         isEnable: Bool,
         type: AuthenticationButtonType,
         image: UIImage? = nil,
         baseBackgroundColor: UIColor,
         backgroundColor: UIColor
     ) {
-        self.title = type.rawValue.capitalized
+        title = type.rawValue.capitalized
         self.isEnable = isEnable
         self.type = type
         self.image = image
@@ -60,7 +60,7 @@ final class AuthenticationButtonViewModel {
         case .email:
             delegate?.authenticationButtonViewModelDidTapEmailAddUser(self)
         case .apple:
-            print("Apple")
+            delegate?.authenticationButtonViewModelDidTapAppleLogin(self)
         case .google:
             print("Google")
         case .facebook:
@@ -73,7 +73,7 @@ final class AuthenticationButtonViewModel {
         case .email:
             delegate?.authenticationButtonViewModelDidTapEmailLogin(self)
         case .apple:
-            print("Apple")
+            delegate?.authenticationButtonViewModelDidTapAppleLogin(self)
         case .google:
             print("Google")
         case .facebook:
