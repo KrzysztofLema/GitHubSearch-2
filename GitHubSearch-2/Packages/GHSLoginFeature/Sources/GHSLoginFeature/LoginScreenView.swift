@@ -13,6 +13,7 @@ import UIKit
 protocol LoginScreenViewDelegate: AnyObject {
     func loginScreenViewSignInButtonTapped(_ loginScreenView: LoginScreenView)
     func loginScreenViewSignUpButtonTapped(_ loginScreenView: LoginScreenView)
+    func loginScreenViewAppleSignInButtonTapped(_ loginScreenView: LoginScreenView)
 }
 
 final class LoginScreenView: BasicView {
@@ -146,6 +147,10 @@ final class LoginScreenView: BasicView {
 }
 
 extension LoginScreenView: AuthenticationButtonViewModelDelegate {
+    func authenticationButtonViewModelDidTapAppleLogin(_ viewModel: AuthenticationButtonViewModel) {
+        delegate?.loginScreenViewAppleSignInButtonTapped(self)
+    }
+
     func authenticationButtonViewModelDidTapEmailLogin(_ viewModel: AuthenticationButtonViewModel) {
         delegate?.loginScreenViewSignInButtonTapped(self)
     }

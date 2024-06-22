@@ -29,14 +29,13 @@ final class AuthenticationButtonViewModelFactory: AuthenticationButtonViewModelF
     }
 }
 
-protocol ViewModelFactoryType {
+private protocol ViewModelFactoryType {
     func create() -> AuthenticationButtonViewModel
 }
 
 private class EmailAuthenticationButtonViewModelFactory: ViewModelFactoryType {
     func create() -> AuthenticationButtonViewModel {
         AuthenticationButtonViewModel(
-            title: "Email",
             isEnable: true,
             type: .email,
             baseBackgroundColor: Color.Authentication.emailButtonBaseBackgroundColor,
@@ -48,7 +47,6 @@ private class EmailAuthenticationButtonViewModelFactory: ViewModelFactoryType {
 private class AppleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
     func create() -> AuthenticationButtonViewModel {
         AuthenticationButtonViewModel(
-            title: "Apple",
             isEnable: true,
             type: .apple,
             image: Asset.Authentication.appleLoginImage.image,
@@ -61,7 +59,6 @@ private class AppleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
 private class GoogleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
     func create() -> AuthenticationButtonViewModel {
         AuthenticationButtonViewModel(
-            title: "Google",
             isEnable: true,
             type: .google,
             image: Asset.Authentication.googleLoginImage.image,
@@ -74,7 +71,6 @@ private class GoogleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
 private class FacebookAuthenticationButtonViewModelFactory: ViewModelFactoryType {
     func create() -> AuthenticationButtonViewModel {
         AuthenticationButtonViewModel(
-            title: "Facebook",
             isEnable: true,
             type: .facebook,
             image: Asset.Authentication.facebookLoginImage.image,

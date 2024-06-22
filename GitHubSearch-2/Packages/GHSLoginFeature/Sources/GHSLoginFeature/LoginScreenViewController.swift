@@ -31,13 +31,6 @@ public final class LoginScreenViewController: BasicViewController {
     @Published var confirmationPassword: String = ""
 
     private var cancellables = Set<AnyCancellable>()
-    private var authButtonsViewModels =
-        [
-            AuthenticationButtonViewModelFactory.createViewModel(type: .email),
-            AuthenticationButtonViewModelFactory.createViewModel(type: .apple),
-            AuthenticationButtonViewModelFactory.createViewModel(type: .facebook),
-            AuthenticationButtonViewModelFactory.createViewModel(type: .google),
-        ]
 
     private lazy var loginInputViewController = AuthenticationInputViewController(viewModel: authenticationInputViewModel)
 
@@ -63,7 +56,7 @@ public final class LoginScreenViewController: BasicViewController {
         view = LoginScreenView(
             viewModel: viewModel,
             loginInputView: loginInputViewController.view,
-            authButtonsViewModels: authButtonsViewModels
+            authButtonsViewModels: viewModel.authButtonsViewModels
         )
     }
 
@@ -85,13 +78,17 @@ public final class LoginScreenViewController: BasicViewController {
 extension LoginScreenViewController: LoginScreenViewModelDelegate {
     func loginScreenViewModelDidTapAddAccountButton(_: LoginScreenViewModel) {
         authenticationInputViewModel.viewType.toggle()
-        for authButtonsViewModel in authButtonsViewModels {
+        for authButtonsViewModel in viewModel.authButtonsViewModels {
             authButtonsViewModel.updateViewType()
         }
     }
 }
 
 extension LoginScreenViewController: LoginScreenViewDelegate {
+    func loginScreenViewAppleSignInButtonTapped(_ loginScreenView: LoginScreenView) {
+        authenticationService.signInWithApple()
+    }
+
     func loginScreenViewSignInButtonTapped(_ loginViewModel: LoginScreenView) {
         authenticationService.signIn(with: email, password: password)
     }
