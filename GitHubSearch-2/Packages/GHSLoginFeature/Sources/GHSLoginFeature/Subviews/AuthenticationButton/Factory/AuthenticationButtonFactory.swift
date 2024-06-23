@@ -51,7 +51,7 @@ private class AppleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
             title: "Apple",
             isEnable: true,
             type: .apple,
-            image: UIImage(named: "apple_login"),
+            image: Asset.Authentication.appleLoginImage.image,
             baseBackgroundColor: Color.Authentication.appleButtonBaseBackgroundColor,
             backgroundColor: Color.Authentication.appleButtonBackgroundColor
         )
@@ -64,7 +64,7 @@ private class GoogleAuthenticationButtonViewModelFactory: ViewModelFactoryType {
             title: "Google",
             isEnable: true,
             type: .google,
-            image: UIImage(named: "google_login"),
+            image: Asset.Authentication.googleLoginImage.image,
             baseBackgroundColor: Color.Authentication.googleButtonBaseBackgroundColor,
             backgroundColor: Color.Authentication.googleButtonBackgroundColor
         )
@@ -77,7 +77,7 @@ private class FacebookAuthenticationButtonViewModelFactory: ViewModelFactoryType
             title: "Facebook",
             isEnable: true,
             type: .facebook,
-            image: UIImage(named: "facebook_login"),
+            image: Asset.Authentication.facebookLoginImage.image,
             baseBackgroundColor: Color.Authentication.appleButtonBaseBackgroundColor,
             backgroundColor: Color.Authentication.facebookButtonBackgroundColor
         )

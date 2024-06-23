@@ -34,7 +34,8 @@ let package = Package(
                 "TinyConstraints",
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
-            ]
+            ],
+            resources: [.copy("Resources/Assets.xcassets")]
         ),
         .testTarget(
             name: "GHSLoginFeatureTests",
