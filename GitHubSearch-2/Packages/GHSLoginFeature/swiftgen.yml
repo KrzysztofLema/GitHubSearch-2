@@ -1,0 +1,11 @@
+input_dir: Sources/GHSLoginFeature/Resources/
+output_dir: Sources/GHSLoginFeature/Resources/Generated/
+
+xcassets:
+  inputs:
+    - Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: XCAssets+Generated.swift

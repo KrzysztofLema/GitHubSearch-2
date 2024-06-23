@@ -2,7 +2,7 @@
 --swiftversion 5.0
 
 # File Options
---exclude Stage,Tasks/.build,ThirdParty,**/SwiftGen/*,**/Sourcery/*,Frameworks/swift-composable-architecture,**.generated.swift
+--exclude Stage,Tasks/.build,ThirdParty,**/SwiftGen/*,**/Generated/*,**/Sourcery/*,Frameworks/swift-composable-architecture,**.generated.swift
 
 # Format Options
 
