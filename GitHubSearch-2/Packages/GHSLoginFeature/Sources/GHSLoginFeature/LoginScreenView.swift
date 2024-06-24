@@ -11,6 +11,7 @@ import TinyConstraints
 import UIKit
 
 protocol LoginScreenViewDelegate: AnyObject {
+    func loginScreenViewGoogleSignInButtonTapped(_ loginScreenView: LoginScreenView)
     func loginScreenViewSignInButtonTapped(_ loginScreenView: LoginScreenView)
     func loginScreenViewSignUpButtonTapped(_ loginScreenView: LoginScreenView)
     func loginScreenViewAppleSignInButtonTapped(_ loginScreenView: LoginScreenView)
@@ -147,15 +148,19 @@ final class LoginScreenView: BasicView {
 }
 
 extension LoginScreenView: AuthenticationButtonViewModelDelegate {
-    func authenticationButtonViewModelDidTapAppleLogin(_ viewModel: AuthenticationButtonViewModel) {
+    func authenticationViewModelAppleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel) {
         delegate?.loginScreenViewAppleSignInButtonTapped(self)
     }
-
-    func authenticationButtonViewModelDidTapEmailLogin(_ viewModel: AuthenticationButtonViewModel) {
+    
+    func authenticationViewModelGoogleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel) {
+        delegate?.loginScreenViewGoogleSignInButtonTapped(self)
+    }
+    
+    func authenticationViewModelEmailLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel) {
         delegate?.loginScreenViewSignInButtonTapped(self)
     }
-
-    func authenticationButtonViewModelDidTapEmailAddUser(_ viewModel: AuthenticationButtonViewModel) {
+    
+    func authenticationViewModelEmailAddUserButtonTapped(_ viewModel: AuthenticationButtonViewModel) {
         delegate?.loginScreenViewSignUpButtonTapped(self)
     }
 }

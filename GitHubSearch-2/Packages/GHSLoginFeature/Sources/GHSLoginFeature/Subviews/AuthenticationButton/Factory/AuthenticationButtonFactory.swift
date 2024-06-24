@@ -7,7 +7,6 @@
 
 import Foundation
 import GHSCoreUI
-import GHSModels
 import UIKit
 
 protocol AuthenticationButtonViewModelFactoryType {

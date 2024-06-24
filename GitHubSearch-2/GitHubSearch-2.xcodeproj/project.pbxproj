@@ -3,10 +3,18 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		950573CA2C299907009FD348 /* GHSModels in Frameworks */ = {isa = PBXBuildFile; productRef = 950573C92C299907009FD348 /* GHSModels */; };
+		950573CD2C299916009FD348 /* GHSLoginFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 950573CC2C299916009FD348 /* GHSLoginFeature */; };
+		950573CF2C299928009FD348 /* GHSExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = 950573CE2C299928009FD348 /* GHSExtensions */; };
+		950573D22C299939009FD348 /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 950573D12C299939009FD348 /* GHSDtoModels */; };
+		950573D52C29994C009FD348 /* GHSDependecyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 950573D42C29994C009FD348 /* GHSDependecyInjection */; };
+		950573D82C299959009FD348 /* GHSCoreUI in Frameworks */ = {isa = PBXBuildFile; productRef = 950573D72C299959009FD348 /* GHSCoreUI */; };
+		950573DA2C299A30009FD348 /* GHSLoginFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 950573D92C299A30009FD348 /* GHSLoginFeature */; };
+		950573E72C2A1D61009FD348 /* GitHubLanguageColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 951F353E2C0F769B002B4607 /* GitHubLanguageColors.json */; };
 		951BFA132BF8B6250019B430 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA122BF8B6250019B430 /* Coordinator.swift */; };
 		951BFA152BF8BAFA0019B430 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */; };
 		951BFA182BF8C8880019B430 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA172BF8C8880019B430 /* TabBarCoordinator.swift */; };
@@ -18,7 +26,6 @@
 		951F351A2C0F0906002B4607 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35192C0F0906002B4607 /* UIView+Extensions.swift */; };
 		951F351C2C0F0AD7002B4607 /* Optional+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F351B2C0F0AD7002B4607 /* Optional+Extensions.swift */; };
 		951F351F2C0F165B002B4607 /* FooterReposiotoryTextBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F351E2C0F165B002B4607 /* FooterReposiotoryTextBuilder.swift */; };
-		951F35432C0F769B002B4607 /* GitHubLanguageColors.json in Resources */ = {isa = PBXBuildFile; fileRef = 951F353E2C0F769B002B4607 /* GitHubLanguageColors.json */; };
 		951F35442C0F769B002B4607 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 951F353F2C0F769B002B4607 /* Assets.xcassets */; };
 		951F35452C0F769B002B4607 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 951F35402C0F769B002B4607 /* LaunchScreen.storyboard */; };
 		951F35492C0F8BA8002B4607 /* GitHubLanguageColorsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951F35482C0F8BA8002B4607 /* GitHubLanguageColorsStore.swift */; };
@@ -52,9 +59,6 @@
 		95429BBD2C09166E00BCD09D /* ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95429BBC2C09166E00BCD09D /* ReuseIdentifier.swift */; };
 		955945CC2C234A5A008F50EB /* Inject in Frameworks */ = {isa = PBXBuildFile; productRef = 955945CB2C234A5A008F50EB /* Inject */; };
 		9577EF802C23541000F6AC87 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 9577EF7F2C23541000F6AC87 /* ComposableArchitecture */; };
-		957A10DD2C1E20B9002440E3 /* GHSModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DC2C1E20B9002440E3 /* GHSModels */; };
-		957A10DF2C1E2310002440E3 /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 957A10DE2C1E2310002440E3 /* GHSDtoModels */; settings = {ATTRIBUTES = (Required, ); }; };
-		9587DDDF2C1A1FE800258602 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9587DDDE2C1A1FE800258602 /* GoogleService-Info.plist */; };
 		959276B52C03A74800048438 /* ObservableSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959276B42C03A74800048438 /* ObservableSearchController.swift */; };
 		959FB6722BF7E24E0042C394 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6712BF7E24E0042C394 /* AppDelegate.swift */; };
 		959FB6742BF7E24E0042C394 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959FB6732BF7E24E0042C394 /* SceneDelegate.swift */; };
@@ -79,7 +83,6 @@
 		95CC38C42BFC7563005EA562 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CC38C32BFC7562005EA562 /* SearchRequest.swift */; };
 		95CDB0DD2C04A86800BFACCA /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CDB0DC2C04A86800BFACCA /* NavigationController.swift */; };
 		95E310342C2248A4000829EA /* LoginScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95E310322C2248A4000829EA /* LoginScreenCoordinator.swift */; };
-		95E310362C2248BF000829EA /* GHSLoginFeature in Frameworks */ = {isa = PBXBuildFile; productRef = 95E310352C2248BF000829EA /* GHSLoginFeature */; };
 		95EE22712C051795001AD6B8 /* RepositoryDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EE22702C051795001AD6B8 /* RepositoryDetailCoordinator.swift */; };
 /* End PBXBuildFile section */
 
@@ -101,6 +104,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		950573E52C2A15EF009FD348 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		951BFA122BF8B6250019B430 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		951BFA172BF8C8880019B430 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -125,7 +129,6 @@
 		957A10DA2C1E1C86002440E3 /* GHSModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSModels; sourceTree = "<group>"; };
 		957A10DB2C1E1DA3002440E3 /* GHSDtoModels */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSDtoModels; sourceTree = "<group>"; };
 		957A10E02C1E2329002440E3 /* GHSCoreUI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSCoreUI; sourceTree = "<group>"; };
-		9587DDDE2C1A1FE800258602 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		959276B42C03A74800048438 /* ObservableSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableSearchController.swift; sourceTree = "<group>"; };
 		959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GitHubSearch-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		959FB6712BF7E24E0042C394 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,25 +178,29 @@
 				951F357C2C10A75C002B4607 /* FirebaseDynamicLinks in Frameworks */,
 				951F35762C10A75C002B4607 /* FirebaseCrashlytics in Frameworks */,
 				951F357A2C10A75C002B4607 /* FirebaseDatabaseSwift in Frameworks */,
+				950573D52C29994C009FD348 /* GHSDependecyInjection in Frameworks */,
 				951F357E2C10A75C002B4607 /* FirebaseFirestore in Frameworks */,
-				957A10DF2C1E2310002440E3 /* GHSDtoModels in Frameworks */,
+				950573CD2C299916009FD348 /* GHSLoginFeature in Frameworks */,
 				951F358C2C10A75C002B4607 /* FirebaseInstallations in Frameworks */,
 				951F35862C10A75C002B4607 /* FirebaseFunctionsCombine-Community in Frameworks */,
 				951F35802C10A75C002B4607 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				951F35782C10A75C002B4607 /* FirebaseDatabase in Frameworks */,
+				950573CF2C299928009FD348 /* GHSExtensions in Frameworks */,
 				951F35922C10A75C002B4607 /* FirebasePerformance in Frameworks */,
 				951F356E2C10A75C002B4607 /* FirebaseAppCheck in Frameworks */,
+				950573D22C299939009FD348 /* GHSDtoModels in Frameworks */,
 				951F35682C10A75C002B4607 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				9577EF802C23541000F6AC87 /* ComposableArchitecture in Frameworks */,
+				950573D82C299959009FD348 /* GHSCoreUI in Frameworks */,
 				951F35962C10A75C002B4607 /* FirebaseRemoteConfigSwift in Frameworks */,
-				957A10DD2C1E20B9002440E3 /* GHSModels in Frameworks */,
+				950573DA2C299A30009FD348 /* GHSLoginFeature in Frameworks */,
 				951F356A2C10A75C002B4607 /* FirebaseAnalyticsSwift in Frameworks */,
-				95E310362C2248BF000829EA /* GHSLoginFeature in Frameworks */,
 				951F35702C10A75C002B4607 /* FirebaseAppDistribution-Beta in Frameworks */,
 				951F35942C10A75C002B4607 /* FirebaseRemoteConfig in Frameworks */,
 				951F35982C10A75C002B4607 /* FirebaseStorage in Frameworks */,
 				951F35742C10A75C002B4607 /* FirebaseAuthCombine-Community in Frameworks */,
 				951F359A2C10A75C002B4607 /* FirebaseStorageCombine-Community in Frameworks */,
+				950573CA2C299907009FD348 /* GHSModels in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,6 +311,7 @@
 		951F353D2C0F769B002B4607 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				950573E52C2A15EF009FD348 /* GoogleService-Info.plist */,
 				951F353E2C0F769B002B4607 /* GitHubLanguageColors.json */,
 				951F353F2C0F769B002B4607 /* Assets.xcassets */,
 				951F35402C0F769B002B4607 /* LaunchScreen.storyboard */,
@@ -379,7 +387,6 @@
 		959FB6702BF7E24E0042C394 /* GitHubSearch-2 */ = {
 			isa = PBXGroup;
 			children = (
-				9587DDDE2C1A1FE800258602 /* GoogleService-Info.plist */,
 				95A67A5B2C161F910056B08A /* GitHubSearch-2.entitlements */,
 				951F353D2C0F769B002B4607 /* SupportingFiles */,
 				959FB6712BF7E24E0042C394 /* AppDelegate.swift */,
@@ -559,11 +566,15 @@
 				951F35952C10A75C002B4607 /* FirebaseRemoteConfigSwift */,
 				951F35972C10A75C002B4607 /* FirebaseStorage */,
 				951F35992C10A75C002B4607 /* FirebaseStorageCombine-Community */,
-				957A10DC2C1E20B9002440E3 /* GHSModels */,
-				957A10DE2C1E2310002440E3 /* GHSDtoModels */,
-				95E310352C2248BF000829EA /* GHSLoginFeature */,
 				955945CB2C234A5A008F50EB /* Inject */,
 				9577EF7F2C23541000F6AC87 /* ComposableArchitecture */,
+				950573C92C299907009FD348 /* GHSModels */,
+				950573CC2C299916009FD348 /* GHSLoginFeature */,
+				950573CE2C299928009FD348 /* GHSExtensions */,
+				950573D12C299939009FD348 /* GHSDtoModels */,
+				950573D42C29994C009FD348 /* GHSDependecyInjection */,
+				950573D72C299959009FD348 /* GHSCoreUI */,
+				950573D92C299A30009FD348 /* GHSLoginFeature */,
 			);
 			productName = "GitHubSearch-2";
 			productReference = 959FB66E2BF7E24E0042C394 /* GitHubSearch-2.app */;
@@ -643,6 +654,13 @@
 				951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				955945CA2C234A5A008F50EB /* XCRemoteSwiftPackageReference "Inject" */,
 				955945CD2C2353CF008F50EB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				950573BA2C28C92C009FD348 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				950573C52C299779009FD348 /* XCLocalSwiftPackageReference "Packages/GHSExtensions" */,
+				950573C82C299907009FD348 /* XCLocalSwiftPackageReference "Packages/GHSModels" */,
+				950573CB2C299916009FD348 /* XCLocalSwiftPackageReference "Packages/GHSLoginFeature" */,
+				950573D02C299939009FD348 /* XCLocalSwiftPackageReference "Packages/GHSDtoModels" */,
+				950573D32C29994C009FD348 /* XCLocalSwiftPackageReference "Packages/GHSDependecyInjection" */,
+				950573D62C299959009FD348 /* XCLocalSwiftPackageReference "Packages/GHSCoreUI" */,
 			);
 			productRefGroup = 959FB66F2BF7E24E0042C394 /* Products */;
 			projectDirPath = "";
@@ -660,8 +678,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				951F35432C0F769B002B4607 /* GitHubLanguageColors.json in Resources */,
-				9587DDDF2C1A1FE800258602 /* GoogleService-Info.plist in Resources */,
+				950573E72C2A1D61009FD348 /* GitHubLanguageColors.json in Resources */,
 				951F35442C0F769B002B4607 /* Assets.xcassets in Resources */,
 				951F35452C0F769B002B4607 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -989,7 +1006,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -1009,7 +1026,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
@@ -1028,7 +1045,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.krzysztoflema.GitHubSearch-2UITests";
@@ -1046,7 +1063,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 75V4JJUAC7;
+				DEVELOPMENT_TEAM = 74925668M8;
 				GENERATE_INFOPLIST_FILE = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.krzysztoflema.GitHubSearch-2UITests";
@@ -1099,7 +1116,42 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		950573C52C299779009FD348 /* XCLocalSwiftPackageReference "Packages/GHSExtensions" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSExtensions;
+		};
+		950573C82C299907009FD348 /* XCLocalSwiftPackageReference "Packages/GHSModels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSModels;
+		};
+		950573CB2C299916009FD348 /* XCLocalSwiftPackageReference "Packages/GHSLoginFeature" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSLoginFeature;
+		};
+		950573D02C299939009FD348 /* XCLocalSwiftPackageReference "Packages/GHSDtoModels" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSDtoModels;
+		};
+		950573D32C29994C009FD348 /* XCLocalSwiftPackageReference "Packages/GHSDependecyInjection" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSDependecyInjection;
+		};
+		950573D62C299959009FD348 /* XCLocalSwiftPackageReference "Packages/GHSCoreUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/GHSCoreUI;
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
+		950573BA2C28C92C009FD348 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.1.0;
+			};
+		};
 		951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -1143,6 +1195,34 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		950573C92C299907009FD348 /* GHSModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSModels;
+		};
+		950573CC2C299916009FD348 /* GHSLoginFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSLoginFeature;
+		};
+		950573CE2C299928009FD348 /* GHSExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSExtensions;
+		};
+		950573D12C299939009FD348 /* GHSDtoModels */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSDtoModels;
+		};
+		950573D42C29994C009FD348 /* GHSDependecyInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSDependecyInjection;
+		};
+		950573D72C299959009FD348 /* GHSCoreUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSCoreUI;
+		};
+		950573D92C299A30009FD348 /* GHSLoginFeature */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GHSLoginFeature;
+		};
 		951F35652C10A75C002B4607 /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 951F35642C10A75C002B4607 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -1268,14 +1348,6 @@
 			package = 955945CD2C2353CF008F50EB /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
 		};
-		957A10DC2C1E20B9002440E3 /* GHSModels */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GHSModels;
-		};
-		957A10DE2C1E2310002440E3 /* GHSDtoModels */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GHSDtoModels;
-		};
 		95CC38A42BF94491005EA562 /* TinyConstraints */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 95CC38A32BF94491005EA562 /* XCRemoteSwiftPackageReference "TinyConstraints" */;
@@ -1285,10 +1357,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 95CC38A82BFB5C09005EA562 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
 			productName = CocoaLumberjackSwift;
-		};
-		95E310352C2248BF000829EA /* GHSLoginFeature */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = GHSLoginFeature;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
