@@ -1,10 +1,3 @@
-//
-//  AuthenticationService.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 09/06/2024.
-//
-
 import AuthenticationServices
 import CocoaLumberjackSwift
 import FirebaseAuth
@@ -21,12 +14,20 @@ public protocol AuthenticationServiceType {
 
     func signIn(with email: String, password: String)
     func signInWithApple()
+    func sighInWithGoogle()
     func signOut()
     func createUser(with email: String, password: String)
 }
 
 public class AuthenticationService: NSObject, AuthenticationServiceType {
+    public var firebaseEnabled: Bool {
+        let value = UserDefaults.standard.bool(forKey: "isFirebaseEnabled")
+        DDLogInfo("Is Firebase enabled: \(value == true ? "YES" : "NO")")
+        return value
+    }
+    
     @Injected(\.firebaseProvider) private var firebaseProvider: FirebaseProviderType
+    @Injected(\.googleAuthenticationService) private var googleAuthenticationService: GoogleAuthenticationServiceType
 
     public weak var delegate: AuthenticationServiceDelegate?
 
@@ -35,7 +36,11 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
 
     override init() {
         super.init()
-        registerAuthStateHandler()
+        if firebaseEnabled {
+            registerAuthStateHandler()
+        }
+            
+        googleAuthenticationService.delegate = self
     }
 
     public func signIn(with email: String, password: String) {
@@ -63,6 +68,10 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
         authorizationController.presentationContextProvider = self
 
         authorizationController.performRequests()
+    }
+
+    public func sighInWithGoogle() {
+        googleAuthenticationService.sighInWithGoogle()
     }
 
     public func performExistingAccountSetupFlow() {
@@ -176,6 +185,16 @@ extension AuthenticationService: ASAuthorizationControllerDelegate, ASAuthorizat
     }
 
     public func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: any Error) {
+        delegate?.authService(didOccurError: error)
+    }
+}
+
+extension AuthenticationService: GoogleAuthenticationServiceDelegate {
+    public func googleAuthenticationServiceUserDidLogIn() {
+        delegate?.authServiceUserDidLogIn()
+    }
+
+    public func authenticationService(didOccurError error: any Error) {
         delegate?.authService(didOccurError: error)
     }
 }

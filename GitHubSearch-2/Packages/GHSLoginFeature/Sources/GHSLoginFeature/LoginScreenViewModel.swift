@@ -1,10 +1,3 @@
-//
-//  LoginScreenViewModel.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 06/06/2024.
-//
-
 import CocoaLumberjackSwift
 import Foundation
 

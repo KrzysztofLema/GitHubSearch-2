@@ -4,9 +4,10 @@ import GHSModels
 import UIKit
 
 protocol AuthenticationButtonViewModelDelegate: AnyObject {
-    func authenticationButtonViewModelDidTapEmailLogin(_ viewModel: AuthenticationButtonViewModel)
-    func authenticationButtonViewModelDidTapEmailAddUser(_ viewModel: AuthenticationButtonViewModel)
-    func authenticationButtonViewModelDidTapAppleLogin(_ viewModel: AuthenticationButtonViewModel)
+    func authenticationViewModelAppleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
+    func authenticationViewModelGoogleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
+    func authenticationViewModelEmailLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
+    func authenticationViewModelEmailAddUserButtonTapped(_ viewModel: AuthenticationButtonViewModel)
 }
 
 final class AuthenticationButtonViewModel {
@@ -58,11 +59,11 @@ final class AuthenticationButtonViewModel {
     private func handleDidAddUserButtonTapped(with type: AuthenticationButtonType) {
         switch type {
         case .email:
-            delegate?.authenticationButtonViewModelDidTapEmailAddUser(self)
+            delegate?.authenticationViewModelEmailAddUserButtonTapped(self)
         case .apple:
-            delegate?.authenticationButtonViewModelDidTapAppleLogin(self)
+            delegate?.authenticationViewModelAppleLoginButtonTapped(self)
         case .google:
-            print("Google")
+            delegate?.authenticationViewModelGoogleLoginButtonTapped(self)
         case .facebook:
             print("Facebook")
         }
@@ -71,11 +72,11 @@ final class AuthenticationButtonViewModel {
     private func handleDidLoginUserButtonTapped(with type: AuthenticationButtonType) {
         switch type {
         case .email:
-            delegate?.authenticationButtonViewModelDidTapEmailLogin(self)
+            delegate?.authenticationViewModelEmailLoginButtonTapped(self)
         case .apple:
-            delegate?.authenticationButtonViewModelDidTapAppleLogin(self)
+            delegate?.authenticationViewModelAppleLoginButtonTapped(self)
         case .google:
-            print("Google")
+            delegate?.authenticationViewModelGoogleLoginButtonTapped(self)
         case .facebook:
             print("Facebook")
         }

@@ -1,13 +1,5 @@
-//
-//  AuthenticationButtonFactory.swift
-//
-//
-//  Created by Krzysztof Lema on 22/06/2024.
-//
-
 import Foundation
 import GHSCoreUI
-import GHSModels
 import UIKit
 
 protocol AuthenticationButtonViewModelFactoryType {

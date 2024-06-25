@@ -1,10 +1,3 @@
-//
-//  LoginScreenViewController.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 05/06/2024.
-//
-
 import Combine
 import Foundation
 import GHSCoreUI
@@ -85,6 +78,10 @@ extension LoginScreenViewController: LoginScreenViewModelDelegate {
 }
 
 extension LoginScreenViewController: LoginScreenViewDelegate {
+    func loginScreenViewGoogleSignInButtonTapped(_ loginScreenView: LoginScreenView) {
+        authenticationService.sighInWithGoogle()
+    }
+
     func loginScreenViewAppleSignInButtonTapped(_ loginScreenView: LoginScreenView) {
         authenticationService.signInWithApple()
     }

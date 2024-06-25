@@ -1,10 +1,3 @@
-//
-//  AuthenticationInputViewModel.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 13/06/2024.
-//
-
 import Combine
 import Foundation
 import GHSDependecyInjection
