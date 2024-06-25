@@ -14,7 +14,6 @@
 		95031B762C2A36EA00367CEA /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B752C2A36EA00367CEA /* GHSDtoModels */; };
 		95031B782C2A36FC00367CEA /* GHSDependecyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B772C2A36FC00367CEA /* GHSDependecyInjection */; };
 		95031B7B2C2A370900367CEA /* GHSCoreUI in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B7A2C2A370900367CEA /* GHSCoreUI */; };
-		950839F12C2B0C92009D50D4 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 950839F02C2B0C92009D50D4 /* Constants.swift */; };
 		951BFA132BF8B6250019B430 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA122BF8B6250019B430 /* Coordinator.swift */; };
 		951BFA152BF8BAFA0019B430 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */; };
 		951BFA182BF8C8880019B430 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA172BF8C8880019B430 /* TabBarCoordinator.swift */; };
@@ -107,7 +106,6 @@
 /* Begin PBXFileReference section */
 		95031B652C2A2E3E00367CEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		950839EE2C2AFB20009D50D4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		950839F02C2B0C92009D50D4 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		950839F22C2B3D2F009D50D4 /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
 		951BFA122BF8B6250019B430 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
@@ -462,7 +460,6 @@
 			isa = PBXGroup;
 			children = (
 				95CC38AD2BFB89F3005EA562 /* Data */,
-				950839F02C2B0C92009D50D4 /* Constants.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -731,7 +728,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				952249442C1C19DD00526DE6 /* UIStackView+Extensions.swift in Sources */,
-				950839F12C2B0C92009D50D4 /* Constants.swift in Sources */,
 				95CC38C42BFC7563005EA562 /* SearchRequest.swift in Sources */,
 				951BFA152BF8BAFA0019B430 /* ApplicationCoordinator.swift in Sources */,
 				951F35502C103D14002B4607 /* FooterStackView.swift in Sources */,
