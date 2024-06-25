@@ -1,10 +1,3 @@
-//
-//  AuthenticationInputView.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 13/06/2024.
-//
-
 import Combine
 import GHSCoreUI
 import GHSExtensions

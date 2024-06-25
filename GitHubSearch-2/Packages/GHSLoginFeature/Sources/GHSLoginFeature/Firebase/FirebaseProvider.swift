@@ -1,10 +1,3 @@
-//
-//  FirebaseProvider.swift
-//  GitHubSearch-2
-//
-//  Created by Krzysztof Lema on 09/06/2024.
-//
-
 import CocoaLumberjackSwift
 import FirebaseAuth
 import Foundation
@@ -20,6 +13,8 @@ final class FirebaseProvider: FirebaseProviderType {
         DDLogInfo("Using the emulator: \(value == true ? "YES" : "NO")")
         return value
     }
+    
+
 
     public var auth: Auth {
         var environment = ""
