@@ -25,7 +25,7 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
         DDLogInfo("Is Firebase enabled: \(value == true ? "YES" : "NO")")
         return value
     }
-    
+
     @Injected(\.firebaseProvider) private var firebaseProvider: FirebaseProviderType
     @Injected(\.googleAuthenticationService) private var googleAuthenticationService: GoogleAuthenticationServiceType
 
@@ -39,7 +39,7 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
         if firebaseEnabled {
             registerAuthStateHandler()
         }
-            
+
         googleAuthenticationService.delegate = self
     }
 

@@ -13,8 +13,6 @@ final class FirebaseProvider: FirebaseProviderType {
         DDLogInfo("Using the emulator: \(value == true ? "YES" : "NO")")
         return value
     }
-    
-
 
     public var auth: Auth {
         var environment = ""
