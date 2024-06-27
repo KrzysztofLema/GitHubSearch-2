@@ -6,7 +6,7 @@ import GoogleSignIn
 
 protocol GoogleAuthenticationServiceDelegate: AnyObject {
     func googleAuthenticationServiceUserDidLogIn()
-    func authenticationService(didOccurError error: Error)
+    func googleAuthenticationService(didOccurError error: Error)
 }
 
 protocol GoogleAuthenticationServiceType {
@@ -35,7 +35,7 @@ final class GoogleAuthenticationService: GoogleAuthenticationServiceType {
 
         GIDSignIn.sharedInstance.signIn(withPresenting: rootViewController) { [unowned self] result, error in
             guard error == nil else {
-                delegate?.authenticationService(didOccurError: error!)
+                delegate?.googleAuthenticationService(didOccurError: error!)
                 return
             }
 
@@ -61,7 +61,7 @@ final class GoogleAuthenticationService: GoogleAuthenticationServiceType {
             }
 
             if let error = error {
-                self.delegate?.authenticationService(didOccurError: error)
+                self.delegate?.googleAuthenticationService(didOccurError: error)
             } else {
                 self.delegate?.googleAuthenticationServiceUserDidLogIn()
             }

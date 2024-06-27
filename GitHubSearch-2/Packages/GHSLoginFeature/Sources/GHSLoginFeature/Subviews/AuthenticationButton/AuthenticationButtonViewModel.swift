@@ -4,6 +4,7 @@ import GHSModels
 import UIKit
 
 protocol AuthenticationButtonViewModelDelegate: AnyObject {
+    func authenticationViewModelFacebookLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
     func authenticationViewModelAppleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
     func authenticationViewModelGoogleLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
     func authenticationViewModelEmailLoginButtonTapped(_ viewModel: AuthenticationButtonViewModel)
@@ -65,7 +66,7 @@ final class AuthenticationButtonViewModel {
         case .google:
             delegate?.authenticationViewModelGoogleLoginButtonTapped(self)
         case .facebook:
-            print("Facebook")
+            delegate?.authenticationViewModelFacebookLoginButtonTapped(self)
         }
     }
 
@@ -78,7 +79,7 @@ final class AuthenticationButtonViewModel {
         case .google:
             delegate?.authenticationViewModelGoogleLoginButtonTapped(self)
         case .facebook:
-            print("Facebook")
+            delegate?.authenticationViewModelFacebookLoginButtonTapped(self)
         }
     }
 }

@@ -22,6 +22,7 @@ let package = Package(
         .package(url: "https://github.com/roberthein/TinyConstraints.git", from: "4.0.2"),
         .package(url: "https://github.com/firebase/firebase-ios-sdk.git", from: "10.28.0"),
         .package(url: "https://github.com/google/GoogleSignIn-iOS.git", from: "7.1.0"),
+        .package(url: "https://github.com/facebook/facebook-ios-sdk.git", from: "17.0.2"),
 
     ],
     targets: [
@@ -39,6 +40,7 @@ let package = Package(
                 .product(name: "FirebaseAuth", package: "firebase-ios-sdk"),
                 .product(name: "CocoaLumberjackSwift", package: "CocoaLumberjack"),
                 .product(name: "GoogleSignIn", package: "GoogleSignIn-iOS"),
+                .product(name: "FacebookLogin", package: "facebook-ios-sdk"),
             ],
             resources: [.copy("Resources/Assets.xcassets")]
         ),
