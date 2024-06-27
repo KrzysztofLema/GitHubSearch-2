@@ -14,7 +14,6 @@
 		95031B762C2A36EA00367CEA /* GHSDtoModels in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B752C2A36EA00367CEA /* GHSDtoModels */; };
 		95031B782C2A36FC00367CEA /* GHSDependecyInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B772C2A36FC00367CEA /* GHSDependecyInjection */; };
 		95031B7B2C2A370900367CEA /* GHSCoreUI in Frameworks */ = {isa = PBXBuildFile; productRef = 95031B7A2C2A370900367CEA /* GHSCoreUI */; };
-		950839F42C2D2989009D50D4 /* DevConfiguration.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 950839F32C2D2989009D50D4 /* DevConfiguration.xcconfig */; };
 		951BFA132BF8B6250019B430 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA122BF8B6250019B430 /* Coordinator.swift */; };
 		951BFA152BF8BAFA0019B430 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */; };
 		951BFA182BF8C8880019B430 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 951BFA172BF8C8880019B430 /* TabBarCoordinator.swift */; };
@@ -108,7 +107,6 @@
 		95031B652C2A2E3E00367CEA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		950839EE2C2AFB20009D50D4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		950839F22C2B3D2F009D50D4 /* ci_pre_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_pre_xcodebuild.sh; sourceTree = "<group>"; };
-		950839F32C2D2989009D50D4 /* DevConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevConfiguration.xcconfig; sourceTree = "<group>"; };
 		951BFA122BF8B6250019B430 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		951BFA142BF8BAFA0019B430 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		951BFA172BF8C8880019B430 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
@@ -164,6 +162,7 @@
 		95E310372C224DCC000829EA /* GHSExtensions */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSExtensions; sourceTree = "<group>"; };
 		95E310382C224F56000829EA /* GHSDependecyInjection */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = GHSDependecyInjection; sourceTree = "<group>"; };
 		95EE22702C051795001AD6B8 /* RepositoryDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailCoordinator.swift; sourceTree = "<group>"; };
+		95FF0F412C2DD1E5005FD482 /* DevConfiguration.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevConfiguration.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,7 +318,7 @@
 				951F353E2C0F769B002B4607 /* GitHubLanguageColors.json */,
 				951F353F2C0F769B002B4607 /* Assets.xcassets */,
 				951F35402C0F769B002B4607 /* LaunchScreen.storyboard */,
-				950839F32C2D2989009D50D4 /* DevConfiguration.xcconfig */,
+				95FF0F412C2DD1E5005FD482 /* DevConfiguration.xcconfig */,
 			);
 			path = SupportingFiles;
 			sourceTree = "<group>";
@@ -683,7 +682,6 @@
 			files = (
 				951F35432C0F769B002B4607 /* GitHubLanguageColors.json in Resources */,
 				95031B662C2A2E3E00367CEA /* GoogleService-Info.plist in Resources */,
-				950839F42C2D2989009D50D4 /* DevConfiguration.xcconfig in Resources */,
 				951F35442C0F769B002B4607 /* Assets.xcassets in Resources */,
 				951F35452C0F769B002B4607 /* LaunchScreen.storyboard in Resources */,
 			);
@@ -941,7 +939,7 @@
 		};
 		959FB6992BF7E24F0042C394 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 950839F32C2D2989009D50D4 /* DevConfiguration.xcconfig */;
+			baseConfigurationReference = 95FF0F412C2DD1E5005FD482 /* DevConfiguration.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

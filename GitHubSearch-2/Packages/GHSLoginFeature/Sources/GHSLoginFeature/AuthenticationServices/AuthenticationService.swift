@@ -14,20 +14,16 @@ public protocol AuthenticationServiceType {
 
     func signIn(with email: String, password: String)
     func signInWithApple()
+    func signInWithFacebook()
     func sighInWithGoogle()
     func signOut()
     func createUser(with email: String, password: String)
 }
 
 public class AuthenticationService: NSObject, AuthenticationServiceType {
-    public var firebaseEnabled: Bool {
-        let value = UserDefaults.standard.bool(forKey: "isFirebaseEnabled")
-        DDLogInfo("Is Firebase enabled: \(value == true ? "YES" : "NO")")
-        return value
-    }
-
     @Injected(\.firebaseProvider) private var firebaseProvider: FirebaseProviderType
     @Injected(\.googleAuthenticationService) private var googleAuthenticationService: GoogleAuthenticationServiceType
+    @Injected(\.facebookAuthenticationService) private var facebookAuthenticationService: FacebookAuthenticationServiceType
 
     public weak var delegate: AuthenticationServiceDelegate?
 
@@ -36,10 +32,10 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
 
     override init() {
         super.init()
-        if firebaseEnabled {
-            registerAuthStateHandler()
-        }
 
+        registerAuthStateHandler()
+
+        facebookAuthenticationService.delegate = self
         googleAuthenticationService.delegate = self
     }
 
@@ -68,6 +64,10 @@ public class AuthenticationService: NSObject, AuthenticationServiceType {
         authorizationController.presentationContextProvider = self
 
         authorizationController.performRequests()
+    }
+
+    public func signInWithFacebook() {
+        facebookAuthenticationService.signInWithFacebook()
     }
 
     public func sighInWithGoogle() {
@@ -149,11 +149,11 @@ extension AuthenticationService: ASAuthorizationControllerDelegate, ASAuthorizat
                 fatalError("Invalid state: a login callback was received, but no login request was sent.")
             }
             guard let appleIDToken = appleIDCredential.identityToken else {
-                print("Unable to fetch identify token.")
+                DDLogInfo("Unable to fetch identify token.")
                 return
             }
             guard let idTokenString = String(data: appleIDToken, encoding: .utf8) else {
-                print("Unable to serialise token string from data: \(appleIDToken.debugDescription)")
+                DDLogInfo("Unable to serialise token string from data: \(appleIDToken.debugDescription)")
                 return
             }
 
@@ -176,7 +176,7 @@ extension AuthenticationService: ASAuthorizationControllerDelegate, ASAuthorizat
                     }
                 }
             } catch {
-                print("Error authenticating: \(error.localizedDescription)")
+                DDLogInfo("Error authenticating: \(error.localizedDescription)")
                 return
             }
         default:
@@ -194,7 +194,21 @@ extension AuthenticationService: GoogleAuthenticationServiceDelegate {
         delegate?.authServiceUserDidLogIn()
     }
 
-    public func authenticationService(didOccurError error: any Error) {
+    public func googleAuthenticationService(didOccurError error: any Error) {
+        delegate?.authService(didOccurError: error)
+    }
+}
+
+extension AuthenticationService: FacebookAuthenticationServiceDelegate {
+    func facebookAuthenticationServiceDidCancel() {
+        DDLogInfo("Facebook service did cancel")
+    }
+
+    func facebookAuthenticationServiceUserDidLogIn() {
+        delegate?.authServiceUserDidLogIn()
+    }
+
+    func facebookAuthenticationService(didOccurError error: any Error) {
         delegate?.authService(didOccurError: error)
     }
 }

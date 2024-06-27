@@ -6,6 +6,7 @@
 //
 
 import CocoaLumberjackSwift
+import FacebookCore
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
@@ -14,6 +15,7 @@ import UIKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         DDLog.add(DDOSLogger.sharedInstance)
         FirebaseApp.configure()
 

@@ -5,6 +5,8 @@
 //  Created by Krzysztof Lema on 17/05/2024.
 //
 
+import FacebookCore
+import FacebookLogin
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -23,6 +25,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         DispatchQueue.main.async { [weak self] in
             self?.appCoordinator.start()
         }
+    }
+
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        guard let url = URLContexts.first?.url else {
+            return
+        }
+
+        ApplicationDelegate.shared.application(
+            UIApplication.shared,
+            open: url,
+            sourceApplication: nil,
+            annotation: [UIApplication.OpenURLOptionsKey.annotation]
+        )
     }
 }
 
