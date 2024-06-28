@@ -1,8 +1,9 @@
+import CocoaLumberjackSwift
 import FacebookCore
 import FacebookLogin
+import FirebaseAuth
 import Foundation
 import GHSDependecyInjection
-import FirebaseAuth
 
 protocol FacebookAuthenticationServiceDelegate: AnyObject {
     func facebookAuthenticationService(didOccurError error: Error)
@@ -12,86 +13,86 @@ protocol FacebookAuthenticationServiceDelegate: AnyObject {
 
 protocol FacebookAuthenticationServiceType {
     func signInWithFacebook()
-    
+
     var delegate: FacebookAuthenticationServiceDelegate? { get set }
 }
 
 final class FacebookAuthenticationService: FacebookAuthenticationServiceType {
     @Injected(\.firebaseProvider) private var firebaseProvider: FirebaseProviderType
-    
+
     weak var delegate: FacebookAuthenticationServiceDelegate?
-    
+
     enum Constants {
         static let publicProfilePermission = "public_profile"
         static let emailPermission = "email"
+        static let facebookProviderID = "facebook.com"
     }
-    
+
     private var currentNonce: String?
-    
+
     func signInWithFacebook() {
         do {
             let nonce = try CryptoUtils.randomNonceString()
             currentNonce = nonce
         } catch {
-            print(error)
+            DDLogError("Can't create random nonce.")
+            delegate?.facebookAuthenticationService(didOccurError: error)
         }
-        
-        
+
+        let sha256Nonce = CryptoUtils.sha256(currentNonce ?? "")
+
         guard let configuration = LoginConfiguration(
-            permissions:[.publicProfile, .email],
+            permissions: [.publicProfile, .email],
             tracking: .limited,
-            nonce: CryptoUtils.sha256(currentNonce!)
+            nonce: sha256Nonce
         )
         else {
             return
         }
-        
+
         let manager = LoginManager()
         manager.logOut()
-        
+
         manager.logIn(configuration: configuration) { [weak self] result in
             guard let self else {
                 return
             }
-            
+
             switch result {
             case .cancelled:
                 break
             case .failed(let error):
                 self.delegate?.facebookAuthenticationService(didOccurError: error)
-                break
             case .success:
-                self.loginFirebase(currentNonce: self.currentNonce!)
-                break
-            @unknown default:
-                break
+                self.loginFirebase(currentNonce: self.currentNonce)
             }
         }
-            
     }
 
-    func loginFirebase(currentNonce: String) {
+    func loginFirebase(currentNonce: String?) {
         guard let token = AuthenticationToken.current else { return }
-        
         guard let profile = Profile.current else { return }
+        guard let currentNonce else { return }
+
         if let email = profile.email, let name = profile.name {
-            print("FB Login OK, Name = \(name), email = \(email)")
+            DDLogInfo("FB Login OK, Name = \(name), email = \(email)")
         }
-        
+
         let tokenString = token.tokenString
-        let credential = OAuthProvider.credential(withProviderID: "facebook.com", idToken: tokenString, rawNonce: currentNonce)
-        Auth.auth().signIn(with: credential, completion: {result, error in
+        let credential = OAuthProvider.credential(withProviderID: Constants.facebookProviderID, idToken: tokenString, rawNonce: currentNonce)
+
+        Auth.auth().signIn(with: credential, completion: { result, error in
             if let error = error {
-                print("Auth signIn Error: " + error.localizedDescription)
+                DDLogError("Auth signIn Error: \(error.localizedDescription)")
             }
-            
+
             guard let result = result else {
-                print("Auth signIn result = nil")
+                DDLogError("Auth signIn result = nil")
                 return
             }
-            
-            print("Auth user: \(result.user.displayName ?? "noName")" )
-            
+
+            DDLogInfo("Auth user: \(result.user.displayName ?? "noName")")
+
             self.delegate?.facebookAuthenticationServiceUserDidLogIn()
         })
     }
