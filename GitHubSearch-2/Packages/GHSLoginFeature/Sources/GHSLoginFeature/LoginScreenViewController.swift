@@ -83,7 +83,7 @@ extension LoginScreenViewController: LoginScreenViewDelegate {
     }
 
     func loginScreenViewGoogleSignInButtonTapped(_ loginScreenView: LoginScreenView) {
-        authenticationService.sighInWithGoogle()
+        authenticationService.signInWithGoogle()
     }
 
     func loginScreenViewAppleSignInButtonTapped(_ loginScreenView: LoginScreenView) {
