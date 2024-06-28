@@ -10,7 +10,7 @@ protocol GoogleAuthenticationServiceDelegate: AnyObject {
 }
 
 protocol GoogleAuthenticationServiceType {
-    func sighInWithGoogle()
+    func signInWithGoogle()
 
     var delegate: GoogleAuthenticationServiceDelegate? { get set }
 }
@@ -20,7 +20,7 @@ final class GoogleAuthenticationService: GoogleAuthenticationServiceType {
 
     weak var delegate: GoogleAuthenticationServiceDelegate?
 
-    public func sighInWithGoogle() {
+    public func signInWithGoogle() {
         guard let clientID = FirebaseApp.app()?.options.clientID else {
             return
         }
